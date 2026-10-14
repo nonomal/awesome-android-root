@@ -1,38 +1,29 @@
 ---
 layout: doc
 title: About Awesome Android Root
-description: "Learn about the Awesome Android Root project - the most comprehensive collection of Android root apps, guides, and resources."
+description: "Learn about the Awesome Android Root project, its editorial approach, and the Android rooting resources it maintains."
 head:
-  - - link
-    - rel: canonical
-      href: https://awesome-android-root.org/about
   - - meta
     - property: og:type
       content: website
   - - meta
     - property: og:title
-      content: About Awesome Android Root - Ultimate Android Rooting Resource 2026
+      content: About Awesome Android Root - Project and editorial approach
   - - meta
     - property: og:description
-      content: Discover the story behind Awesome Android Root - the most comprehensive collection of 400+ Android root apps, Magisk, KernelSU & LSPosed (Xposed) modules & rooting guides.
+      content: Learn how the Awesome Android Root project curates Android root apps, modules, guides and troubleshooting resources.
   - - meta
-    - property: og:url
-      content: https://awesome-android-root.org/about
+    - name: twitter:creator
+      content: "@awsm_and_root"
   - - meta
-    - property: og:image
-      content: https://awesome-android-root.org/images/og.png
-  - - meta
-    - name: twitter:card
-      content: summary_large_image
+    - name: twitter:image:alt
+      content: About Awesome Android Root - Ultimate Rooting Resource
   - - meta
     - name: twitter:title
-      content: About Awesome Android Root - Ultimate Resource 2026
+      content: About Awesome Android Root - Project and editorial approach
   - - meta
     - name: twitter:description
-      content: The story behind the most comprehensive Android rooting resource. 400+ apps, expert guides, and community-driven excellence.
-  - - meta
-    - name: keywords
-      content: about awesome android root, android rooting project, android root community, magisk modules collection, android customization resource, open source android, android freedom project, rooting guides 2026
+      content: How the project organizes Android root apps, modules, rooting guides and community resources.
   - - meta
     - name: author
       content: Awesome Android Root Project
@@ -52,19 +43,13 @@ head:
     - property: article:tag
       content: Community
   - - meta
-    - property: article:published_time
-      content: 2025-10-21
-  - - meta
-    - property: article:modified_time
-      content: 2025-12-26
-  - - meta
     - name: robots
       content: index, follow, max-image-preview:large
 ---
 
 # About Awesome Android Root
 
-Awesome Android Root serves as a premier, community-curated resource dedicated to Android rooting, deep customization, and user empowerment. It provides a comprehensive, up-to-date directory of over 400 vetted tools, applications, modules, and expert guides designed for power users and developers seeking to unlock the full potential of their devices.
+Awesome Android Root serves as a premier, community-curated resource dedicated to Android rooting, deep customization, and user empowerment. It provides a comprehensive, up-to-date directory of over 600 vetted tools, applications, modules, and expert guides designed for power users and developers seeking to unlock the full potential of their devices.
 
 ## Our Mission
 
@@ -74,7 +59,7 @@ Our mission is to democratize advanced Android customization by providing free, 
 
 **Comprehensive Rooting & Customization Resources**
 *   **[Expert Guides](./rooting-guides/index.md)**: Detailed, step-by-step tutorials for various devices and methods.
-*   **[400+ Curated Root Apps & Modules](/apps-and-modules/#root-apps)**: A meticulously selected collection spanning ad-blocking, privacy, performance, automation, and more.
+*   **[650+ Curated Root Apps & Modules](/apps-and-modules/root-management)**: A meticulously selected collection spanning ad-blocking, privacy, performance, automation, and more.
 *   **[Extensive Device Support](./rooting-guides/#device-specific-guides)**: Targeted guides for major brands including Xiaomi, Samsung, Pixel, OnePlus, and Motorola.
 *   **[FAQ & Troubleshooting](./faqs.md)**: A dedicated resource for resolving common issues and finding support.
 
@@ -83,12 +68,12 @@ Our mission is to democratize advanced Android customization by providing free, 
 **Essential Pathway for New Users:**
 1.  **[Unlock Bootloader](./rooting-guides/how-to-unlock-bootloader.md)**: The foundational step for device modification.
 2.  **[Install Custom Recovery](./rooting-guides/how-to-install-custom-recovery.md)**: Gain the ability to flash custom software.
-3.  **[Choose Root Method](./rooting-guides/index.md#root-solutions-comparison)**: Select the optimal solution (e.g., Magisk, KernelSU) for your device.
+3.  **[Choose Root Method](./rooting-guides/root-framework-comparison.md)**: Select the optimal solution (e.g., Magisk, KernelSU) for your device.
 4.  **[Install Custom ROM](./rooting-guides/custom-rom-installation.md)**: (Optional) Experience a completely transformed Android operating system.
 
 **Tailored Navigation:**
 *   **Beginners:** [Complete Rooting Guide](./rooting-guides/) → [Essential Apps](./apps-and-modules/#starter-kit-must-have-apps)
-*   **Intermediate:** [Device-Specific Guides](./rooting-guides/#device-specific-guides) → [Root Management](../apps-and-modules/#root-management)
+*   **Intermediate:** [Device-Specific Guides](./rooting-guides/#device-specific-guides) → [Root Management](/apps-and-modules/root-management)
 *   **Experts:** [Troubleshooting](./faqs) → [Community Contributions](./contributing)
 
 ## Community & Support
@@ -116,7 +101,6 @@ We are part of a vibrant ecosystem of Android developers and enthusiasts, simila
 You can help ensure the long-term availability and growth of this resource:
 *   [⭐ Star our GitHub Repository](https://github.com/awesome-android-root/awesome-android-root)
 *   [Contribute](https://github.com/awesome-android-root/awesome-android-root?tab=contributing-ov-file) new tools, guides, or improvements
-*   [Donate](https://opencollective.com/awesome-android-root-official) to support project hosting and development
 *   Share Awesome Android Root with others in the community
 
 ---

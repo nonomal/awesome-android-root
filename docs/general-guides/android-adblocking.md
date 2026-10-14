@@ -3,9 +3,6 @@ layout: doc
 title: "Android Ad Blocking Guide"
 description: "Complete guide to system-wide ad blocking on rooted Android using AdAway and Bindhosts. Block ads in all apps."
 head:
-  - - link
-    - rel: canonical
-      href: https://awesome-android-root.org/general-guides/android-adblocking
   - - meta
     - name: author
       content: Awesome Android Root
@@ -13,29 +10,14 @@ head:
     - name: robots
       content: index, follow
   - - meta
-    - name: keywords
-      content: "android ad blocking, root ad blocker, AdAway, Bindhosts, hosts file, system-wide ad blocking, magisk ad blocking, kernelsu ad blocking, apatch ad blocking"
-  - - meta
-    - property: og:type
-      content: article
-  - - meta
     - property: og:title
       content: "Ultimate Android Ad Blocking Guide for Rooted Devices (2026)"
   - - meta
     - property: og:description
       content: "Complete guide to system-wide ad blocking on rooted Android using AdAway and Bindhosts. Block ads in all apps, improve performance, and enhance privacy with root access."
   - - meta
-    - property: og:url
-      content: https://awesome-android-root.org/general-guides/android-adblocking
-  - - meta
     - property: og:image
-      content: https://awesome-android-root.org/images/og/android-adblocking.png
-  - - meta
-    - property: og:site_name
-      content: Awesome Android Root
-  - - meta
-    - name: twitter:card
-      content: summary_large_image
+      content: https://awesome-android-root.xyz/images/og/android-adblocking.png
   - - meta
     - name: twitter:title
       content: "Ultimate Android Ad Blocking Guide for Rooted Devices (2026)"
@@ -43,17 +25,17 @@ head:
     - name: twitter:description
       content: "Complete guide to system-wide ad blocking on rooted Android using AdAway and Bindhosts. Block ads in all apps, improve performance, and enhance privacy."
   - - meta
+    - name: twitter:creator
+      content: "@awsm_and_root"
+  - - meta
     - name: twitter:image
-      content: https://awesome-android-root.org/images/og/android-adblocking.png
+      content: https://awesome-android-root.xyz/images/og/android-adblocking.png
+  - - meta
+    - name: twitter:image:alt
+      content: Android Ad Blocking Guide - System-Wide Ad Blocking for Rooted Devices
   - - meta
     - name: article:author
       content: Awesome Android Root
-  - - meta
-    - name: article:published_time
-      content: 2025-01-30
-  - - meta
-    - name: article:modified_time
-      content: 2025-12-26
   - - meta
     - name: article:section
       content: Guides
@@ -83,8 +65,8 @@ head:
 *The complete guide to eliminating ads across your entire Android system using powerful root-based solutions*
 
 [![Root Required](https://img.shields.io/badge/Root-Required-red?style=for-the-badge)](#requirements)
-[![AdAway Compatible](https://img.shields.io/badge/AdAway-Compatible-green?style=for-the-badge)](#adaway-setup)
-[![Systemless](https://img.shields.io/badge/Systemless-Supported-blue?style=for-the-badge)](#systemless-benefits)
+[![AdAway Compatible](https://img.shields.io/badge/AdAway-Compatible-green?style=for-the-badge)](#method-1-adaway-recommended)
+[![Systemless](https://img.shields.io/badge/Systemless-Supported-blue?style=for-the-badge)](#method-2-bindhosts-advanced)
 
 </div>
 
@@ -97,7 +79,7 @@ head:
 - [Ad Blocking Methods Comparison](#ad-blocking-methods-comparison)
 - [Method 1: AdAway (Recommended)](#method-1-adaway-recommended)
 - [Method 2: Bindhosts (Advanced)](#method-2-bindhosts-advanced)
-- [Configuration & Optimization](#configuration--optimization)
+- [Configuration & Optimization](#configuration-optimization)
 - [Troubleshooting](#troubleshooting)
 - [Advanced Tips](#advanced-tips)
 - [FAQ](#faq)
@@ -166,7 +148,7 @@ Root ad blocking operates by modifying the **hosts file** (`/system/etc/hosts`),
 
 ## Method 1: AdAway (Recommended)
 
-**AdAway** is the most user-friendly and widely-adopted root ad blocker for Android. Also available in our [ad blocker collection](../apps-and-modules/#ads-and-tracking-blockers).
+**AdAway** is the most user-friendly and widely-adopted root ad blocker for Android. Also available in our [ad blocker collection](../apps-and-modules/ad-blocking#ad-tracker-blocking).
 
 ### 📥 **Installation**
 
@@ -235,7 +217,7 @@ su -c "ndc resolver clearnetdns"
 
 ## Method 2: Bindhosts (Advanced)
 
-**Bindhosts** offers advanced systemless ad blocking with superior root hiding and auto-updating capabilities. Find it in our [ad blocking modules](../apps-and-modules/#ads-and-tracking-blockers).
+**Bindhosts** offers advanced systemless ad blocking with superior root hiding and auto-updating capabilities. Find it in our [ad blocking modules](../apps-and-modules/ad-blocking#ad-tracker-blocking).
 
 ### 🎯 **Why Choose Bindhosts?**
 - **Fully systemless** - No permanent system modifications
@@ -421,7 +403,7 @@ am start -a android.intent.action.VIEW -d "market://details?id=com.google.androi
    - Bindhosts: Add to whitelist file
 
 2. **Configure root hiding** for banking apps:
-   - See [root hiding solutions](../apps-and-modules/#root-hiding-and-play-integrity)
+   - See [root hiding solutions](../apps-and-modules/root-management#root-hiding-play-integrity)
    - Check [Play Integrity troubleshooting](../troubleshooting.md#play-integrity-and-banking-apps)
 
 #### **Issue: Slow Internet or Connection Problems**
@@ -483,7 +465,7 @@ sync; echo 3 > /proc/sys/vm/drop_caches
 ### 🔐 **Security Enhancements**
 
 #### **Malware Protection**
-Add malware-blocking hosts sources (also check our [privacy & security apps](../apps-and-modules/#privacy-and-security)):
+Add malware-blocking hosts sources (also check our [privacy & security apps](../apps-and-modules/privacy)):
 ```
 • Malware Domain List: https://www.malwaredomainlist.com/hostslist/hosts.txt
 • URLVoid: https://www.urlvoid.com/downloads/hostformat.php
@@ -556,8 +538,8 @@ A: Systemless methods (Magisk modules) survive OTA updates. Traditional modifica
 - ⚡ [KernelSU Setup Guide](../rooting-guides/kernelsu-guide.md) - Kernel-based root with advanced hiding
 - 🛠️ [LSPosed Configuration](../rooting-guides/lsposed-guide.md) - Advanced app modifications
 - 🧹 [Android Debloating Guide](./android-apps-debloating.md) - Remove bloatware for better performance
-- 🛡️ [Privacy & Security Apps](../apps-and-modules/#privacy-and-security) - Additional privacy tools
-- 🔍 [More Ad Blocking Solutions](../apps-and-modules/#ads-and-tracking-blockers) - Alternative blockers
+- 🛡️ [Privacy & Security Apps](../apps-and-modules/privacy) - Additional privacy tools
+- 🔍 [More Ad Blocking Solutions](../apps-and-modules/ad-blocking#ad-tracker-blocking) - Alternative blockers
 
 ---
 

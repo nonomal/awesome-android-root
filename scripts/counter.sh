@@ -1,79 +1,69 @@
 #!/usr/bin/env bash
 
-# Set the README file
-readme_file="README.md"
+# Counts entries in the Apps & Modules category pages (docs/apps-and-modules/*.md).
+# The docs pages are the canonical home of the database (see README).
 
-# Check if the file exists
-if [[ ! -f "$readme_file" ]]; then
-  echo "Error: $readme_file not found!"
+# Resolve repo root (scripts/..)
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+COUNT_PAGE="$ROOT_DIR/docs/count.md"
+
+# All category pages, excluding the hub index
+mapfile -t pages < <(find "$ROOT_DIR/docs/apps-and-modules" -maxdepth 1 -name '*.md' ! -name 'index.md' | sort)
+
+if [[ ${#pages[@]} -eq 0 ]]; then
+  echo "Error: no category pages found under docs/apps-and-modules/!" >&2
   exit 1
 fi
 
-# Function to count entries matching a pattern
-count_entries() {
-  local pattern=$1
-  grep -E "$pattern" "$readme_file" | wc -l
-}
+# Colors
+RESET='\033[0m'
+BOLD='\033[1m'
+BLUE='\033[38;5;75m'
+ORANGE='\033[38;5;208m'
+GREEN='\033[38;5;114m'
+PURPLE='\033[38;5;141m'
+CYAN='\033[38;5;80m'
+WHITE='\033[97m'
+GRAY='\033[38;5;240m'
 
-# Function to exclude certain lines and count the rest
-count_filtered_entries() {
-  local include_pattern=$1
-  local exclude_pattern=$2
-  if [[ -n "$exclude_pattern" ]]; then
-    grep -E "$include_pattern" "$readme_file" | grep -v -E "$exclude_pattern" | wc -l
-  else
-    grep -E "$include_pattern" "$readme_file" | wc -l
-  fi
-}
+# Patterns (same entry format as always: "- **[[Name]](url)** ...")
+entry_pattern='^- \*\*\[[^]]+\]\([^)]*\)\*\*'
 
-# Patterns for entries
-# Main pattern for app entries (looks for entries starting with "- **[name](link)**")
-total_pattern='^- \*\*\[[^]]+\]\([^)]*\)\*\*'
-# Guide entries pattern and other non-app entries to exclude
-exclude_pattern='(docs/|README\.md|index\.md|↑ Back to top|table-of-contents)'
-# Table entries that aren't counted (like in Featured Apps table)
-table_entries_pattern='^\| \*\*\[[^]]+\]\([^)]*\)\*\*'
-# Module patterns - looking for backtick-enclosed tags
-magisk_pattern='^- \*\*\[[^]]+\]\([^)]*\)\*\*.*`\[M\]`'
-kernelsu_pattern='^- \*\*\[[^]]+\]\([^)]*\)\*\*.*`\[K\]`'
-lsposed_pattern='^- \*\*\[[^]]+\]\([^)]*\)\*\*.*`\[LSP\]`'
+all_entries=$(grep -hE "$entry_pattern" "${pages[@]}" | wc -l)
+magisk_modules=$(grep -hE "$entry_pattern" "${pages[@]}" | grep -cE '`\[M\]`' || true)
+kernelsu_modules=$(grep -hE "$entry_pattern" "${pages[@]}" | grep -cE '`\[K\]`' || true)
+apatch_modules=$(grep -hE "$entry_pattern" "${pages[@]}" | grep -cE '`\[A\]`' || true)
+lsposed_modules=$(grep -hE "$entry_pattern" "${pages[@]}" | grep -cE '`\[LSP\]`' || true)
+all_module_entries=$(grep -hE "$entry_pattern" "${pages[@]}" | grep -cE '`\[(M|K|LSP|A)\]`' || true)
+root_apps=$((all_entries - all_module_entries))
 
-# Count all entries excluding guides and navigation links
-all_entries=$(count_filtered_entries "$total_pattern" "$exclude_pattern")
-table_entries=$(count_entries "$table_entries_pattern")
+{
+  printf '%s\n' '---' 'title: Apps and Modules Count' 'description: Current counts of root apps and Android root modules listed in the documentation.' '---' '' \
+    '# Apps and Modules Count' '' \
+    'Updated automatically on each documentation build. Counts are based on entries in `docs/apps-and-modules/`.' '' \
+    'Copyable Markdown table:' '' \
+    '```markdown' \
+    '| Category | Count |' \
+    '| --- | ---: |'
+  printf '| Total entries | %s |\n' "$all_entries"
+  printf '| Root apps | %s |\n' "$root_apps"
+  printf '| Magisk modules | %s |\n' "$magisk_modules"
+  printf '| KernelSU modules | %s |\n' "$kernelsu_modules"
+  printf '| APatch modules | %s |\n' "$apatch_modules"
+  printf '| LSPosed modules | %s |\n' "$lsposed_modules"
+  printf '%s\n' '```' '' 'Framework counts may overlap when an entry has multiple framework tags.'
+} > "$COUNT_PAGE"
 
-# Calculate actual app entries (excluding table entries like Featured Apps)
-total_entries=$((all_entries - table_entries))
-
-# Count modules by type (total counts including overlaps)
-magisk_modules=$(count_entries "$magisk_pattern")
-kernelsu_modules=$(count_entries "$kernelsu_pattern")
-lsposed_modules=$(count_entries "$lsposed_pattern")
-
-# Calculate root apps (entries without any module tags)
-# Get all app entries, then subtract those with any module tags
-all_module_entries=$(grep -E "$total_pattern" "$readme_file" | grep -v -E "$exclude_pattern" | grep -E '`\[(M|K|LSP)\]`' | wc -l)
-root_apps=$((total_entries - all_module_entries))
-
-# Output in new MD table format
-cat << EOF
-
-![Total Entries](https://img.shields.io/badge/Total%20Entries-${total_entries}-blue?style=for-the-badge&logo=android&cacheSeconds=3600)
-![Root Apps](https://img.shields.io/badge/Root%20Apps-${root_apps}-blue?style=for-the-badge&logo=android&cacheSeconds=3600)
-![Magisk Modules](https://img.shields.io/badge/Magisk%20Modules-${magisk_modules}-orange?style=for-the-badge&logo=magisk&logoColor=white&cacheSeconds=3600)
-![KernelSU Modules](https://img.shields.io/badge/KernelSU%20Modules-${kernelsu_modules}-green?style=for-the-badge&logo=keenetic&logoColor=white&cacheSeconds=3600)
-![LSPosed Modules](https://img.shields.io/badge/LSPosed%20Modules-${lsposed_modules}-purple?style=for-the-badge&logo=local&logoColor=white&cacheSeconds=3600)
-
-EOF
-
-# Debug information (uncomment for troubleshooting)
-# echo "DEBUG INFO:" >&2
-# echo "All entries: $all_entries" >&2
-# echo "Table entries: $table_entries" >&2
-# echo "Actual total entries: $total_entries" >&2
-# echo "Magisk modules: $magisk_modules" >&2
-# echo "KernelSU modules: $kernelsu_modules" >&2
-# echo "LSPosed modules: $lsposed_modules" >&2
-# echo "All module entries: $all_module_entries" >&2
-# echo "Root apps: $root_apps" >&2
-# echo "" >&2
+# Display
+echo ""
+echo -e "  ${GRAY}${RESET}  ${BOLD}${WHITE}📃 Apps & Modules Stats (docs)${RESET}              ${GRAY}${RESET}"
+echo -e "  ${GRAY}------------------------------------+${RESET}"
+echo -e "  ${GRAY}${RESET}  ${CYAN}Total Entries${RESET}         ${BOLD}${WHITE}${all_entries}${RESET}      ${GRAY}${RESET}"
+echo -e "  ${GRAY}------------------------------------+${RESET}"
+echo -e "  ${GRAY}${RESET}  ${BLUE}Root Apps${RESET}              ${BOLD}${WHITE}${root_apps}${RESET}      ${GRAY}${RESET}"
+echo -e "  ${GRAY}${RESET}  ${ORANGE}Magisk Modules${RESET}        ${BOLD}${WHITE}${magisk_modules}${RESET}      ${GRAY}${RESET}"
+echo -e "  ${GRAY}${RESET}  ${GREEN}KernelSU Modules${RESET}      ${BOLD}${WHITE}${kernelsu_modules}${RESET}      ${GRAY}${RESET}"
+echo -e "  ${GRAY}${RESET}  ${CYAN}APatch Modules${RESET}        ${BOLD}${WHITE}${apatch_modules}${RESET}      ${GRAY}${RESET}"
+echo -e "  ${GRAY}${RESET}  ${PURPLE}LSPosed Modules${RESET}       ${BOLD}${WHITE}${lsposed_modules}${RESET}      ${GRAY}${RESET}"
+echo -e "  ${GRAY}Markdown table updated: docs/count.md${RESET}"
+echo ""

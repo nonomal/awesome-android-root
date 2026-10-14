@@ -3,9 +3,6 @@ layout: doc
 title: Android Rooting Resources 2026
 description: "Complete collection of Android rooting resources, tools, communities, guides, and expert materials for safe rooting, custom ROMs, and device customization."
 head:
-  - - link
-    - rel: canonical
-      href: https://awesome-android-root.org/resources
   - - meta
     - property: og:type
       content: website
@@ -16,14 +13,23 @@ head:
     - property: og:description
       content: Ultimate collection of Android rooting resources including tools, communities, guides, and expert materials for safe device customization and root access.
   - - meta
-    - property: og:url
-      content: https://awesome-android-root.org/resources
+    - property: og:image:secure_url
+      content: https://awesome-android-root.xyz/images/og.png
   - - meta
-    - property: og:image
-      content: https://awesome-android-root.org/images/og.png
+    - property: og:image:alt
+      content: Android Rooting Resources - Complete Guide & Tools Collection
   - - meta
-    - name: twitter:card
-      content: summary_large_image
+    - property: og:image:width
+      content: '1200'
+  - - meta
+    - property: og:image:height
+      content: '630'
+  - - meta
+    - property: og:image:type
+      content: image/png
+  - - meta
+    - name: twitter:creator
+      content: "@awsm_and_root"
   - - meta
     - name: twitter:title
       content: Android Rooting Resources 2026 - Complete Collection
@@ -31,8 +37,8 @@ head:
     - name: twitter:description
       content: Everything you need for Android rooting - tools, communities, guides, and expert resources in one comprehensive collection.
   - - meta
-    - name: keywords
-      content: android rooting resources, rooting tools 2026, android root communities, magisk resources, kernelsu tools, android development resources, custom rom resources, bootloader unlock tools, recovery tools, android debugging resources, root learning materials, android modding resources, xda developers, android root forums, rooting guides collection
+    - name: twitter:image:alt
+      content: Android Rooting Resources 2026 - Tools, Communities & Guides
   - - meta
     - name: author
       content: Awesome Android Root Project
@@ -52,12 +58,6 @@ head:
     - property: article:tag
       content: Tools
   - - meta
-    - property: article:published_time
-      content: 2025-08-28
-  - - meta
-    - property: article:modified_time
-      content: 2025-12-26
-  - - meta
     - name: robots
       content: index, follow, max-image-preview:large
 ---
@@ -66,16 +66,14 @@ head:
 
 > Comprehensive reference for Android rooting, customization, and recovery.
 
-Last updated: November 2026 | Android 15 ready
-
 ---
 
 ## Quick Navigation
 
-- [Getting Started](#getting-started)
+- [Getting Started](#🚀-getting-started)
 - [Core Tooling](#core-tooling)
 - [Firmware and Device Data](#firmware-and-device-data)
-- [Modules and App Distribution](#modules-and-app-distribution)
+- [Module & App Repositories](#module-app-repositories)
 - [Learning and Reference](#learning-and-reference)
 - [Communities and Support](#communities-and-support)
 - [Emergency and Recovery](#emergency-and-recovery)
@@ -98,13 +96,17 @@ Last updated: November 2026 | Android 15 ready
 
 ### Android version compatibility
 
-| Android Version | Recommended Method | Notes |
-|:----------------|:-------------------|:------|
-| **Android 15** | APatch / KernelSU | Latest kernel support |
-| **Android 14** | Magisk / APatch | Stable across methods |
-| **Android 13** | Magisk / KernelSU | Well-tested |
-| **Android 12** | Magisk | Most compatible |
-| **Android 11 & below** | Magisk | Legacy support |
+| Android Version | Recommended Method | Kernel | Notes |
+|:----------------|:-------------------|:-------|:------|
+| **Android 16** | APatch / KernelSU | GKI 2.0 | Developer Preview - experimental support |
+| **Android 15** | APatch / KernelSU / Magisk | GKI 2.0 | Stable across all methods |
+| **Android 14** | Magisk / APatch / KernelSU | GKI 2.0 | Mature and well-tested |
+| **Android 13** | Magisk / KernelSU | GKI / Legacy | Broad device support |
+| **Android 12–12L** | Magisk | GKI / Legacy | Most compatible |
+| **Android 11 & below** | Magisk | Legacy | Long-term support |
+
+> [!TIP]
+> **GKI (Generic Kernel Image)** devices - typically Android 12+ with kernel 5.10+ - have the widest method compatibility. Check your kernel version in **Settings → About Phone → Kernel Version**.
 
 ---
 
@@ -112,12 +114,40 @@ Last updated: November 2026 | Android 15 ready
 
 ### Root solutions
 
-| Solution | Best For | Android Support | Status | Source |
-|:---------|:---------|:----------------|:-------|:-------|
-| **[Magisk](./rooting-guides/magisk-guide.md)** | Universal compatibility | 5.0+ | Active | [GitHub](https://github.com/topjohnwu/Magisk) |
-| **[KernelSU](./rooting-guides/kernelsu-guide.md)** | Kernel-level root | 10+ (GKI) | Active | [GitHub](https://github.com/tiann/KernelSU) |
-| **[APatch](./rooting-guides/apatch-guide.md)** | Modern devices | 10+ | Active | [GitHub](https://github.com/bmax121/APatch) |
-| **[LSPosed (Fork)](./rooting-guides/lsposed-guide.md)** | Xposed framework | 8.1+ | Active | [GitHub](https://github.com/JingMatrix/LSPosed) |
+| Solution | Best For | Android | Zygisk | Hide Root | Status | Source |
+|:---------|:---------|:--------|:-------|:----------|:-------|:-------|
+| **[Magisk](./rooting-guides/magisk-guide.md)** | Universal compatibility | 6.0+ | ✅ Built-in | DenyList | Active | [GitHub](https://github.com/topjohnwu/Magisk) |
+| **[KernelSU](./rooting-guides/kernelsu-guide.md)** | Kernel-level stealth root | 12+ (GKI) | Via module | Built-in | Active | [GitHub](https://github.com/tiann/KernelSU) |
+| **[KernelSU Next](./rooting-guides/kernelsu-guide.md)** | Advanced kernel root, broader kernel support | 4.4–6.6 kernels | Via module | Built-in + SUSFS | Active | [GitHub](https://github.com/KernelSU-Next/KernelSU-Next) |
+| **[APatch](./rooting-guides/apatch-guide.md)** | Modern GKI devices | 12+ (GKI) | Via module | KPM-based | Active | [GitHub](https://github.com/bmax121/APatch) |
+| **[LSPosed (Fork)](./rooting-guides/lsposed-guide.md)** | Xposed framework modules | 8.1–16 | Required | N/A | Active | [GitHub](https://github.com/JingMatrix/LSPosed) |
+| **[GhostLock Temp Root](./rooting-guides/root-without-unlocking-bootloader.md)** | Temporary root, locked bootloader (CVE-2026-43499) | Select devices, ≤ ~Jun 2026 patch | Via KSU | Bootloader reads stock | Closing window | [Guide](./rooting-guides/root-without-unlocking-bootloader.md) |
+
+> [!NOTE]
+> **Magisk** remains the most universally compatible solution. **KernelSU** and **APatch** offer superior stealth on GKI devices but require kernel-level integration. **KernelSU Next** is an advanced kernel-based root solution supporting kernels from 4.4 up to 6.6, extending compatibility to non-GKI and older devices. **GhostLock temp root** is a different animal entirely: a kernel exploit that grants session-only root on a *locked* bootloader - see the [dedicated guide](./rooting-guides/root-without-unlocking-bootloader.md) before considering it.
+ 
+> [!TIP]
+> For the best root hiding currently, **KernelSU Next + SUSFS** is recommended by the community. For Xposed modules, **LSPosed** (JingMatrix fork) is the actively maintained option.
+
+
+### Zygisk implementations
+
+| Tool | Purpose | Compatibility | Source |
+|:-----|:--------|:--------------|:-------|
+| **Magisk Built-in Zygisk** | Default Zygisk in Magisk | Magisk 24+ | Built into [Magisk](https://github.com/topjohnwu/Magisk) |
+| **ZygiskNext** | Standalone Zygisk for KSU/Magisk/APatch | Magisk, KernelSU, APatch | [GitHub](https://github.com/LSPosed/ZygiskNext) |
+| **ReZygisk** | Transparent, open-source Zygisk fork | Magisk, KernelSU, APatch | [GitHub](https://github.com/PerformanC/ReZygisk) |
+
+> [!TIP]
+> Compare the strengths and trade-offs of each Zygisk implementation in the table above.
+
+### Non-root privilege tools
+
+| Tool | Purpose | Root Required | Source |
+|:-----|:--------|:--------------|:-------|
+| **Shizuku** | Delegated ADB/system API access without full root | No | [GitHub](https://github.com/RikkaApps/Shizuku) |
+| **Dhizuku** | Device owner delegation via Shizuku | No | [GitHub](https://github.com/iamr0s/Dhizuku) |
+| **aShell You** | Modern ADB shell interface | No | [GitHub](https://github.com/DP-Hridayan/aShellYou) |
 
 ### Recovery and flashing tools
 
@@ -129,19 +159,22 @@ Last updated: November 2026 | Android 15 ready
 | **OrangeFox** | Enhanced UI, built-in tools | Select devices | [orangefox.download](https://orangefox.download/) |
 | **PitchBlack** | TWRP fork with extras | Select devices | [pitchblackrecovery.com](https://pitchblackrecovery.com/) |
 | **SkyHawk** | Lightweight alternative | Select devices | [GitHub](https://github.com/SHRP) |
-| **AOSP Recovery Source** | Offical base recovery | Reference | [AOSP](https://android.googlesource.com/platform/bootable/recovery/) |
+| **AOSP Recovery Source** | Official base recovery | Reference | [AOSP](https://android.googlesource.com/platform/bootable/recovery/) |
 
 #### Platform tools
 
 | Tool | Purpose | Platform | Source |
 |:-----|:--------|:---------|:-------|
-| **ADB & Fastboot** | Core Android tools | All | [Android SDK](https://developer.android.com/studio/releases/platform-tools) |
-| **Heimdall** | Samsung flashing | All | [glassechidna](https://glassechidna.com.au/heimdall/) |
-| **Odin** | Samsung firmware | Windows | Common distribution |
-| **Mi Flash Tool** | Xiaomi devices | Windows | [xiaomiflashtool.com](https://xiaomiflashtool.com/) |
-| **SP Flash Tool** | MediaTek chips | Windows/Linux | [spflashtool.com](https://spflashtool.com/) |
-| **Android Flash Tool** | Web-based flashing for Pixels | Web | [flash.android.com](https://flash.android.com/) |
-| **LineageOS Recovery Images** | Official recovery builds | Device specific | [LineageOS Wiki](https://wiki.lineageos.org/devices/) |
+| **ADB & Fastboot** | Core Android debug/flash tools | All | [Android SDK](https://developer.android.com/studio/releases/platform-tools) |
+| **Android Flash Tool** | Web-based flashing (Pixel/AOSP) | Web | [flash.android.com](https://flash.android.com/) |
+| **Heimdall** | Open-source Samsung flashing | All | [GitHub](https://github.com/Benjamin-Dobell/Heimdall) |
+| **Odin** | Samsung firmware flashing (official) | Windows | Samsung community distribution |
+| **Mi Flash Tool** | Xiaomi fastboot flashing | Windows | [xiaomiflashtool.com](https://xiaomiflashtool.com/) |
+| **SP Flash Tool** | MediaTek SoC flashing | Windows/Linux | [spflashtool.com](https://spflashtool.com/) |
+| **MTK Client** | Open-source MediaTek bypass/flash | Python | [GitHub](https://github.com/bkerler/mtkclient) |
+| **QFIL (Qualcomm)** | Qualcomm EDL mode flashing | Windows | Qualcomm package |
+| **LineageOS Recovery** | Official LineageOS recovery builds | Device-specific | [LineageOS Wiki](https://wiki.lineageos.org/devices/) |
+
 
 ### Firmware sources
 
@@ -163,8 +196,10 @@ Last updated: November 2026 | Android 15 ready
 | **MMRL** | Magisk modules | Community modules | [GitHub](https://github.com/MMRLApp/MMRL) |
 | **Fox MMRL** | Module manager | Alternative client | [GitHub](https://github.com/Fox2Code/FoxMagiskModuleManager) |
 | **LSPosed Modules** | Xposed modules | App modifications | [Repository](https://github.com/Xposed-Modules-Repo) |
-| **Root Apps Index** | Curated collection | 300+ root apps | [Collection](./apps-and-modules/index.md) |
+| **Root Apps Index** | Curated collection | 650+ root apps | [Collection](./apps-and-modules/index.md) |
 | **IzzyOnDroid** | F-Droid repo | FOSS apps | [IzzyOnDroid](https://apt.izzysoft.de/fdroid/) |
+| **KernelSU Module Repo** | KernelSU modules | Official module repository | [modules.kernelsu.org](https://modules.kernelsu.org/) |
+
 
 ### Extraction and utility tools
 
@@ -174,7 +209,18 @@ Last updated: November 2026 | Android 15 ready
 | **payload-dumper-go** | Extract payload.bin | [GitHub](https://github.com/ssut/payload-dumper-go) |
 | **payload-dumper-py** | Python payload extractor | [GitHub](https://github.com/vm03/payload_dumper) |
 | **payload-dumper-rust** | Android OTA payload dumper | [GitHub](https://github.com/rhythmcache/payload-dumper-rust) |
+| **AnyKernel3** | Kernel packaging/flashing framework | [GitHub](https://github.com/osm0sis/AnyKernel3) |
 
+
+
+---
+
+### GKI kernel builds with root support
+
+| Project | Features | Source |
+|:--------|:---------|:-------|
+| **WildKernels GKI** | KernelSU/KernelSU-Next with WildKSU Manager support, SUSFS root hiding patches, BBG Baseband Guard security | [GitHub](https://github.com/WildKernels/GKI_KernelSU_SUSFS) |
+| **WildKernels OnePlus** | KSU + SUSFS builds for OnePlus GKI devices | [GitHub](https://github.com/WildKernels/OnePlus_KernelSU_SUSFS) |
 
 ---
 
@@ -186,10 +232,12 @@ Last updated: November 2026 | Android 15 ready
 |:---------------|:------------|:-----|
 | **Master Rooting Guide** | Complete rooting workflow | [Index](./rooting-guides/index.md) |
 | **Device-Specific Guides** | Brand-specific procedures | [Device Guides](./rooting-guides/index.md#device-specific-guides) |
-| **Method Comparisons** | Choose the right root method | [Comparison](./rooting-guides/index.md#root-solutions-comparison) |
+| **Method Comparisons** | Choose the right root method | [Comparison](./rooting-guides/root-framework-comparison.md) |
 | **Debloating** | Remove unwanted apps safely | [Debloat Guide](./general-guides/android-apps-debloating.md) |
 | **Ad Blocking** | System-wide ad removal | [AdBlock Guide](./general-guides/android-adblocking.md) |
 | **Custom Recovery Basics** | Flashing and backup workflow | [How to Install Custom Recovery](./rooting-guides/how-to-install-custom-recovery.md) |
+| **Temporary Root (No Unlock)** | GhostLock (CVE-2026-43499) temporary root with a locked bootloader | [Root Without Unlocking the Bootloader](./rooting-guides/root-without-unlocking-bootloader.md) |
+| **Bootloader Mods & Temp Root** | Kaeru, Fenrir, and locked-bootloader approaches | [Temporary Root Solutions](./rooting-guides/temporary-root-solutions.md) |
 
 ---
 
@@ -205,6 +253,7 @@ Last updated: November 2026 | Android 15 ready
 | **r/LineageOS** | Custom ROMs | ROM support | [Reddit](https://reddit.com/r/LineageOS) |
 | **Telegram Groups** | Real-time chat | Quick responses | Various channels |
 | **Pixel Community** | Pixel specific rooting | Device updates | [Reddit](https://reddit.com/r/GooglePixel) |
+| **ReZygisk Telegram** | ReZygisk support | Module updates & discussion | [Telegram](https://t.me/rezygisk) |
 
 
 ### Developer communities
@@ -221,31 +270,37 @@ Last updated: November 2026 | Android 15 ready
 
 ### Manufacturer unlock policies
 
-| Brand | Bootloader Unlock | Warranty | Wait Time | Guide |
-|:------|:------------------|:---------|:----------|:------|
-| **Google Pixel** | Official | Maintained | None | [Guide](./rooting-guides/how-to-root-pixel-phone.md) |
-| **OnePlus** | Official | Voided | None | [Guide](./rooting-guides/how-to-root-oneplus-phone.md) |
-| **Xiaomi** | Mi Unlock | Voided | 7-15 days | [Guide](./rooting-guides/how-to-root-xiaomi-phone.md) |
-| **Samsung** | Regional restrictions | Voided including Knox | None | [Guide](./rooting-guides/how-to-root-samsung-phone.md) |
-| **Nothing** | Official | Voided | None | [Guide](./rooting-guides/how-to-root-nothing-phone.md) |
-| **Motorola** | Official | Voided | None | [Guide](./rooting-guides/how-to-root-motorola-phone.md) |
-| **ASUS** | Official | Voided | None | ASUS Unlock app |
-| **Realme** | Official | Voided | None | Deep Testing app |
-| **OPPO** | Discontinued | N/A | N/A | No longer supported |
-| **Huawei** | Blocked | N/A | N/A | Since 2018 |
+| Brand | Unlock Method | Warranty Impact | Wait Period | Reversible | Guide |
+|:------|:--------------|:----------------|:------------|:-----------|:------|
+| **Google Pixel** | OEM unlock toggle | Maintained | None | ✅ | [Guide](./rooting-guides/how-to-root-pixel-phone.md) |
+| **OnePlus** | OEM unlock toggle | Voided | None | ✅ | [Guide](./rooting-guides/how-to-root-oneplus-phone.md) |
+| **Xiaomi** | Mi Unlock Tool | Voided | 7–30 days | ✅ | [Guide](./rooting-guides/how-to-root-xiaomi-phone.md) |
+| **Samsung** | OEM unlock (regional) | Voided + Knox tripped | None | ❌ Knox permanent | [Guide](./rooting-guides/how-to-root-samsung-phone.md) |
+| **Nothing** | OEM unlock toggle | Voided | None | ✅ | [Guide](./rooting-guides/how-to-root-nothing-phone.md) |
+| **Motorola** | Unlock code request | Voided | None | ✅ | [Guide](./rooting-guides/how-to-root-motorola-phone.md) |
+| **ASUS** | ASUS Unlock app | Voided | None | ✅ | ASUS Unlock Tool |
+| **Realme** | Deep Testing app | Voided | Application required | ✅ | Realme Community |
+| **Sony** | Unlock code via website | Voided + DRM keys lost | None | ⚠️ DRM permanent | Sony Developer portal |
+| **Fairphone** | OEM unlock toggle | Maintained | None | ✅ | Fairphone docs |
+| **OPPO** | Discontinued | N/A | N/A | N/A | No longer available |
+| **Huawei** | Blocked since 2018 | N/A | N/A | N/A | Third-party only (risky) |
 
 ### Popular custom ROMs
 
-| ROM | Base | Focus | Website |
-|:----|:-----|:------|:--------|
-| **LineageOS** | AOSP | Privacy, stability | [lineageos.org](https://lineageos.org/) |
-| **Pixel Experience** | AOSP | Pixel features | [pixelexperience.org](https://pixelexperience.org/) |
-| **crDroid** | LineageOS | Customization | [crdroid.net](https://crdroid.net/) |
-| **Evolution X** | AOSP | Features + stability | [evolution-x.org](https://evolution-x.org/) |
-| **Paranoid Android** | AOSP | Unique features | [paranoidandroid.co](https://paranoidandroid.co/) |
-| **GrapheneOS** | AOSP | Security-focused | [grapheneos.org](https://grapheneos.org/) |
-| **CalyxOS** | AOSP | Privacy-focused | [calyxos.org](https://calyxos.org/) |
-| **PixelOS** | AOSP | Pixel-like features for non-Pixel devices | [pixelos.net](https://pixelos.net/) |
+| ROM | Base | Focus | Root Support | Website |
+|:----|:-----|:------|:-------------|:--------|
+| **LineageOS** | AOSP | Stability, privacy, broad device support | Optional (add-on) | [lineageos.org](https://lineageos.org/) |
+| **GrapheneOS** | AOSP | Hardened security | Discouraged | [grapheneos.org](https://grapheneos.org/) |
+| **CalyxOS** | AOSP | Privacy with usability | Optional | [calyxos.org](https://calyxos.org/) |
+| **/e/OS (Murena)** | LineageOS | De-Googled, microG built-in | Optional | [e.foundation](https://e.foundation/) |
+| **crDroid** | LineageOS | Heavy customization | Built-in support | [crdroid.net](https://crdroid.net/) |
+| **Evolution X** | AOSP | Pixel features + customization | Built-in support | [evolution-x.org](https://evolution-x.org/) |
+| **Paranoid Android** | AOSP | Unique UX features | Optional | [paranoidandroid.co](https://paranoidandroid.co/) |
+| **PixelOS** | AOSP | Pixel experience on non-Pixels | Built-in support | [pixelos.net](https://pixelos.net/) |
+| **Pixel Experience** | AOSP | Pixel features (broader devices) | Built-in support | [pixelexperience.org](https://pixelexperience.org/) |
+
+> [!NOTE]
+> Some ROMs (like Evolution X) include spoofing in the ROM itself. Check your ROM's documentation before adding PIF, you might not need it. Custom ROMs like CrDroid, InfinityX, and Matrixx already come with Keybox injection by default. Instead of using a PIF module, you can use TrickyStore + Keybox injection from your own ROM.
 
 ---
 
@@ -255,11 +310,11 @@ Last updated: November 2026 | Android 15 ready
 
 | Issue | Symptoms | Solution | Guide |
 |:------|:---------|:---------|:------|
-| **Bootloop** | Stuck at logo | Flash stock firmware | [Fix Guide](./faqs.md#device-wont-boot) |
-| **Soft Brick** | System errors | Custom recovery restore | [Recovery Guide](./faqs.md#bricked-device-recovery) |
+| **Bootloop** | Stuck at logo | Flash stock firmware | [Fix Guide](./troubleshooting.md#device-won-t-boot-bootloop) |
+| **Soft Brick** | System errors | Custom recovery restore | [Recovery Guide](./troubleshooting.md#bricked-device-recovery) |
 | **Hard Brick** | No response | EDL/Download mode | Device forums |
-| **IMEI Loss** | No network | Backup restoration | [IMEI Guide](./faqs.md#imei-backup) |
-| **SafetyNet Fail** | App detection | Hide root methods | [Hiding Guide](./faqs.md#play-integrity-and-banking-apps) |
+| **IMEI Loss** | No network | Backup restoration | See device forums |
+| **SafetyNet Fail** | App detection | Hide root methods | [Hiding Guide](./troubleshooting.md#play-integrity-and-banking-apps) |
 
 ### Emergency tools by chipset
 
@@ -328,7 +383,7 @@ Last updated: November 2026 | Android 15 ready
 
 | Resource | Description | URL |
 |:---------|:------------|:----|
-| **Official Website** | Main hub | [awesome-android-root.org](https://awesome-android-root.org) |
+| **Official Website** | Main hub | [awesome-android-root.xyz](https://awesome-android-root.xyz) |
 | **GitHub Repository** | Source code | [GitHub](https://github.com/awesome-android-root/awesome-android-root) |
 | **Issue Tracker** | Bug reports | [Issues](https://github.com/awesome-android-root/awesome-android-root/issues) |
 | **Discussions** | Community Q&A | [Discussions](https://github.com/awesome-android-root/awesome-android-root/discussions) |
@@ -339,7 +394,7 @@ Last updated: November 2026 | Android 15 ready
 
 | Need | Primary Resource | Backup Resource |
 |:-----|:----------------|:----------------|
-| **Emergency Help** | [FAQ Emergency](./faqs.md#emergency-help) | [XDA Device Forums](https://forum.xda-developers.com/) |
+| **Emergency Help** | [Troubleshooting](./troubleshooting.md#emergency-recovery) | [XDA Device Forums](https://forum.xda-developers.com/) |
 | **Root Apps** | [App Collection](./apps-and-modules/index.md) | [F-Droid](https://f-droid.org/) |
 | **Module Discovery** | [MMRL](https://github.com/MMRLApp/MMRL) | [Telegram Channels](https://t.me/magiskmod_update) |
 | **Firmware** | Manufacturer site | [Firmware databases](#firmware-sources) |
@@ -377,6 +432,6 @@ This is a community-driven project. Contributions are welcome!
 
 **Maintained by:** [Awesome Android Root Community](https://github.com/awesome-android-root/awesome-android-root)
 
-[Home](https://awesome-android-root.org) | [Root Apps](./apps-and-modules/index.md) | [Guides](./rooting-guides/index.md) | [FAQ](./faqs.md)
+[Home](https://awesome-android-root.xyz) | [Root Apps](./apps-and-modules/index.md) | [Guides](./rooting-guides/index.md) | [FAQ](./faqs.md)
 
 </div>

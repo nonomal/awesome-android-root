@@ -1,38 +1,32 @@
 ---
 layout: doc
-title: Complete Magisk Root Guide 2026
-description: "Master Magisk rooting with our comprehensive guide. Install systemless root, modules, and advanced root management for all Android devices safely."
+title: "Magisk Root Guide: Installation, Modules & Troubleshooting"
+description: "Learn Magisk installation, boot image patching, modules, Zygisk, DenyList, Play Integrity and troubleshooting for supported Android devices."
 head:
-  - - link
-    - rel: canonical
-      href: https://awesome-android-root.org/rooting-guides/magisk-guide
-  - - meta
-    - property: og:type
-      content: article
   - - meta
     - property: og:title
-      content: Complete Magisk Root Guide 2026 - Universal Android Rooting Solution
+      content: "Magisk Root Guide: Installation, Modules & Troubleshooting"
   - - meta
     - property: og:description
-      content: Install Magisk root with our comprehensive guide. Master systemless rooting with advanced module system, root hiding, and complete device management.
-  - - meta
-    - property: og:url
-      content: https://awesome-android-root.org/rooting-guides/magisk-guide
+      content: Install Magisk with boot image patching, systemless modules, Zygisk, DenyList and practical troubleshooting guidance.
   - - meta
     - property: og:image
-      content: https://awesome-android-root.org/images/og/magisk-guide.png
-  - - meta
-    - name: twitter:card
-      content: summary_large_image
+      content: https://awesome-android-root.xyz/images/og/magisk-guide.png
   - - meta
     - name: twitter:title
-      content: Complete Magisk Root Guide 2026 - Universal Systemless Root
+      content: "Magisk Root Guide: Installation, Modules & Troubleshooting"
   - - meta
     - name: twitter:description
-      content: Master Magisk installation with systemless rooting, module support, and advanced root management for all Android devices.
+      content: Magisk installation, boot image patching, modules, Zygisk, root hiding and Play Integrity troubleshooting.
   - - meta
-    - name: keywords
-      content: magisk root guide 2026, systemless root installation, magisk modules, android rooting, zygisk magisk, magisk manager, root hiding, play integrity fix, magisk delta, magisk boot image patching, magisk installation tutorial, android root 2026, magisk denylist, magisk shamiko
+    - name: twitter:creator
+      content: "@awsm_and_root"
+  - - meta
+    - name: twitter:image
+      content: https://awesome-android-root.xyz/images/og/magisk-guide.png
+  - - meta
+    - name: twitter:image:alt
+      content: Magisk Root Guide - Universal Systemless Rooting
   - - meta
     - name: author
       content: Awesome Android Root Project
@@ -44,7 +38,7 @@ head:
       content: Android Rooting Solutions
   - - meta
     - property: article:tag
-      content: Magisk Root 2026
+      content: Magisk Root
   - - meta
     - property: article:tag
       content: Systemless Root
@@ -60,12 +54,6 @@ head:
   - - meta
     - property: article:tag
       content: Play Integrity Fix
-  - - meta
-    - property: article:published_time
-      content:  2025-10-07T09:00:00Z
-  - - meta
-    - property: article:modified_time
-      content: 2025-12-26T00:00:00Z
   - - meta
     - name: robots
       content: index, follow, max-image-preview:large
@@ -114,9 +102,9 @@ head:
       }
 ---
 
-# Magisk Root Installation Guide
+# Magisk Root Guide: Installation, Modules & Root Management
 
-Industry-standard systemless root solution for Android. Install Magisk to gain complete control over your device while maintaining system integrity.
+Magisk provides systemless root through a patched boot or init_boot image. This guide covers the installation decision, boot image patching, modules, Zygisk, DenyList, Play Integrity and recovery when an update or module goes wrong.
 
 ## Quick Navigation
 
@@ -134,6 +122,8 @@ Industry-standard systemless root solution for Android. Install Magisk to gain c
 - [Root Comparison](./root-framework-comparison.md) - Compare with KernelSU and APatch
 - [Troubleshooting Guide](../troubleshooting.md)
 - [FAQ](../faqs.md) - Common questions
+
+**Magisk topic map:** [installation](#installation-methods) · [boot image patching](#method-1-boot-image-patching-recommended) · [Magisk modules](#managing-modules) · [Zygisk and DenyList](#root-hiding-and-play-integrity) · [Play Integrity](#understanding-play-integrity) · [troubleshooting](#troubleshooting)
 
 ---
 
@@ -153,19 +143,19 @@ Magisk is a systemless root solution that provides superuser access without modi
 | Feature | Magisk | KernelSU | APatch |
 |---------|--------|----------|---------|
 | Ease of Use | Excellent | Moderate | Moderate |
-| Module Support | 1000+ | 300+ | 50+ |
-| Root Hiding | Good | Excellent | Good |
+| Module Support | Excellent | Excellent | Good |
+| Root Hiding | Good | Excellent | Excellent |
 | Device Support | Universal | Limited | Limited |
 | Custom Kernel Required | No | Yes | No |
 
 **Choose Magisk if:**
 - You want easiest installation
-- You need extensive modules (explore [430+ apps](../apps-and-modules/))
+- You need extensive modules (explore [650+ apps](../apps-and-modules/))
 - You want maximum compatibility
 - You're new to rooting
 
 > [!TIP]
-> Detailed comaprison with other root solutions: [Root Comparison](./root-framework-comparison.md)
+> Detailed comparison with other root solutions: [Root Comparison](./root-framework-comparison.md)
 
 ---
 
@@ -202,18 +192,9 @@ Magisk is a systemless root solution that provides superuser access without modi
 - File manager app
 - At least 500MB free storage
 
-### Compatibility Check
+### Compatibility
 
-**Android Version Support:**
-
-| Android Version | Magisk Support | Notes |
-|-----------------|----------------|-------|
-| Android 15 | Yes | Latest Magisk required |
-| Android 14 | Yes | Full support |
-| Android 13 | Yes | May require init_boot patching |
-| Android 12 | Yes | Zygisk fully supported |
-| Android 11 | Yes | Mature support |
-| Android 6-10 | Yes | Use appropriate Magisk version |
+Magisk supports Android 6.0 and above, including the latest Android releases. It works on most devices with an unlockable bootloader.
 
 **Check device compatibility:**
 1. Verify bootloader is unlockable
@@ -236,7 +217,7 @@ This is the official and safest method.
 
 **Magisk APK:**
 1. Visit [Magisk GitHub Releases](https://github.com/topjohnwu/Magisk/releases)
-2. Download latest `Magisk-vXX.X.apk`
+2. Download the latest stable APK
 3. Transfer to device
 
 **Stock Boot Image:**
@@ -493,18 +474,17 @@ adb wait-for-device shell magisk --remove-modules
 
 ### Understanding Play Integrity
 
-Google Play Integrity replaced SafetyNet in 2024. Three levels exist:
+Google Play Integrity replaced SafetyNet. Three levels exist:
 
 | Level | Description | Rooted Devices |
 |-------|-------------|----------------|
-| Basic | Basic app integrity | Passable with tricks |
-| Device | Device integrity verified | Very difficult |
+| Basic | Basic app integrity | Easily passable |
+| Device | Device integrity verified | Passable with Play Integrity Fix |
 | Strong | Hardware attestation | Nearly impossible |
 
 **Reality for Rooted Devices:**
-- Basic Integrity: Can pass with proper setup
-- Device Integrity: Extremely difficult, device-dependent
-- Strong Integrity: Impossible with unlocked bootloader
+- Basic & Device Integrity: Can pass using the Play Integrity Fix (PIF) module.
+- Strong Integrity: Impossible with an unlocked bootloader.
 
 ### Configuring Root Hiding
 
@@ -524,51 +504,35 @@ Google Play Integrity replaced SafetyNet in 2024. Three levels exist:
 
 **Step 3: Configure DenyList**
 
-Add these to DenyList:
-- Google Play Services (all sub-components)
-- Google Play Store
-- All banking/financial apps
-- Payment apps (Google Pay, etc.)
-- Apps that detect root
-- Games with anti-cheat
+Add your banking and financial apps, payment apps such as Google Wallet, apps that detect root,
+and games with anti-cheat. For each app, expand the entry, check every sub-process and enable it for
+all of them.
 
-For each app:
-- Expand app entry
-- Check all sub-processes
-- Enable for all
+::: warning IMPORTANT
+**Do NOT** add Google Play Services (GMS) or Google Play Store to the DenyList if you are using the Play Integrity Fix (PIF) module. Doing so will break the module's ability to spoof device integrity.
+:::
 
 **Step 4: Clear App Data**
 
-After DenyList configuration:
-1. Settings > Apps
-2. Clear data for:
-   - Google Play Services
-   - Google Play Store
-   - Banking apps
-3. Reboot device
-4. Reopen apps
+After DenyList configuration, clear data for Google Play Store, Google Wallet / Pay and your
+banking apps, then reboot and reopen them.
 
 ### Advanced Root Hiding
 
-**Install Shamiko Module:**
-
-1. Download Shamiko from [GitHub](https://github.com/LSPosed/LSPosed.github.io/releases)
-2. Install via Magisk
-3. Reboot
-4. DenyList items now hidden more effectively
-
-**Note:** Shamiko works differently - don't enforce DenyList when using Shamiko.
+Shamiko hides root more effectively than the built-in DenyList: install it, reboot, and leave
+"Enforce DenyList" off in Magisk settings. Shamiko reads the DenyList but applies its own hiding.
 
 > [!TIP]
-> Check our [Root hiding section](./../apps-and-modules/index.md#root-hiding-and-integrity)
+> The full root hiding and Play Integrity setup, including module choices and testing tools, is in
+> [Play Integrity and Banking Apps](../troubleshooting.md#play-integrity-and-banking-apps) and
+> [Root Hiding & Play Integrity](../apps-and-modules/root-management#root-hiding-play-integrity).
 
 ### Testing Play Integrity
 
-**Apps to Test:**
-
-1. **YASNAC** - SafetyNet checker
-2. **Play Integrity API Checker** - Official checker
-3. **TB Checker** - Comprehensive checker
+Use a Play Integrity checker app such as
+[Play Integrity API Checker](https://github.com/1nikolas/play-integrity-checker-app) or
+[SPIC](https://github.com/Dr-TSNG/SPIC). YASNAC is legacy (SafetyNet) and is no longer
+authoritative.
 
 ---
 
@@ -631,7 +595,7 @@ After DenyList configuration:
 - Magisk installation files
 - Module ZIPs
 - DenyList configuration (screenshot)
-- Full device backup using [backup tools](../apps-and-modules/#backup-and-restore)
+- Full device backup using [backup tools](../apps-and-modules/backup#backup-restore)
 
 **Restore to Stock:**
 
@@ -781,10 +745,10 @@ Solutions:
 <details><summary>👉 Click to expand details</summary>
 
 Solutions:
-1. Hide Magisk app with different name
+1. Hide Magisk app with a different name
 2. Clear app data completely
 3. Install Shamiko module
-4. Try [Play Integrity Fix modules](../apps-and-modules/#root-hiding-and-play-integrity)
+4. Try [Play Integrity Fix modules](../apps-and-modules/root-management#root-hiding-play-integrity)
 5. Check if app requires Device/Strong integrity (may be impossible)
 6. See [comprehensive banking app solutions](../troubleshooting.md#play-integrity-and-banking-apps)
 
@@ -807,23 +771,18 @@ Solutions:
 
 <details><summary>👉 Click to expand details</summary>
 
-**Basic Integrity Fails**
+**Basic or Device Integrity Fails**
 
-Solutions:
-1. Install Play Integrity Fix module
-2. Configure proper device fingerprint
-3. Clear Google Play Services data
-4. Reboot device
-5. Wait 24-48 hours for propagation
+Follow the module stack and configuration order in
+[Play Integrity and Banking Apps](../troubleshooting.md#play-integrity-and-banking-apps). If the
+current fingerprint has been banned, wait for a PIF update.
 
-**Device/Strong Integrity Fails**
+**Strong Integrity Fails**
 
-Reality: Nearly impossible to pass with:
+Reality: Impossible to pass with:
 - Unlocked bootloader
 - Custom boot image
 - Hardware attestation
-
-Some devices may pass Device with extensive workarounds, but no guarantees.
 
 </details>
 
@@ -855,11 +814,11 @@ Some devices may pass Device with extensive workarounds, but no guarantees.
 
 1. **Install essential modules:**
    - [LSPosed Framework](./lsposed-guide.md) - Advanced app modifications and Xposed modules
-   - [Ad blocking modules](../apps-and-modules/#ads-and-tracking-blockers) - System-wide ad blocking
-   - [Performance modules](../apps-and-modules/#performance-and-optimization) - Device optimization and battery management
+   - [Ad blocking modules](../apps-and-modules/ad-blocking#ad-tracker-blocking) - System-wide ad blocking
+   - [Performance modules](../apps-and-modules/performance#performance-optimization) - Device optimization and battery management
 
 2. **Explore root apps:**
-   - [Browse 430+ Root Apps](../apps-and-modules/) - Curated collection by category
+   - [Browse 650+ Root Apps](../apps-and-modules/) - Curated collection by category
    - [Starter Kit](../apps-and-modules/#starter-kit-must-have-apps) - Essential apps for new root users
 
 3. **Learn advanced features:**

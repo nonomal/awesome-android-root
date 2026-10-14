@@ -10,7 +10,7 @@ assignees: ''
 
 **Name:** 
 **Type:** (Select one: Root App / Magisk Module / KernelSU Module / LSPosed Module)
-**Category:** (e.g., Privacy, Performance, Customization, etc.)
+**Category:** (choose the topic page in `docs/apps-and-modules/`: Root Management / System / Debloating / Performance & Battery / Privacy / Security / Ad Blocking / App Modifications / File Management / Backup & Restore / Customization / Audio / Networking / Gaming / Development & Automation / General Utilities)
 
 ## Links
 

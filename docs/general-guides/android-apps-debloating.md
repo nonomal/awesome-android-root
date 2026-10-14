@@ -9,26 +9,11 @@ head:
     - name: robots
       content: index, follow
   - - meta
-    - property: og:type
-      content: article
-  - - meta
     - property: og:title
       content: "Complete Guide: Remove Android Bloatware Safely with App Manager & Canta"
   - - meta
-    - property: og:description
-      content: "Safely remove Android bloatware using App Manager and Canta. Step-by-step tutorial with safety tips."
-  - - meta
     - property: og:image
-      content: https://awesome-android-root.org/images/og/android-debloating.png
-  - - meta
-    - property: og:url
-      content: https://awesome-android-root.org/general-guides/android-apps-debloating
-  - - meta
-    - property: og:site_name
-      content: Awesome Android Root
-  - - meta
-    - name: twitter:card
-      content: summary_large_image
+      content: https://awesome-android-root.xyz/images/og/android-debloating.png
   - - meta
     - name: twitter:title
       content: "Complete Guide: Remove Android Bloatware Safely with App Manager & Canta"
@@ -36,11 +21,14 @@ head:
     - name: twitter:description
       content: "Learn how to safely remove Android bloatware using App Manager and Canta. Step-by-step tutorial with screenshots, safety tips, and app alternatives."
   - - meta
+    - name: twitter:creator
+      content: "@awsm_and_root"
+  - - meta
     - name: twitter:image
-      content: https://awesome-android-root.org/images/og/android-debloating.png
-  - - link
-    - rel: canonical
-      href: https://awesome-android-root.org/general-guides/android-apps-debloating
+      content: https://awesome-android-root.xyz/images/og/android-debloating.png
+  - - meta
+    - name: twitter:image:alt
+      content: Android Debloating Guide - Remove Bloatware Safely
 ---
 
 # How to Remove Bloatware Safely Using App Manager or Canta
@@ -67,7 +55,7 @@ Bloatware refers to pre-installed applications that:
 
 ## Method 1: App Manager Debloater
 
-App Manager includes a built-in debloater that uses the comprehensive [Android Debloat List](https://github.com/MuntashirAkon/android-debloat-list) project for intelligent recommendations. Find it in our [app management collection](../apps-and-modules/#app-managers).
+App Manager includes a built-in debloater that uses the comprehensive [Android Debloat List](https://github.com/MuntashirAkon/android-debloat-list) project for intelligent recommendations. Find it in our [app management collection](../apps-and-modules/system#app-package-management).
 
 ### Requirements
 
@@ -275,20 +263,20 @@ Canta shows detailed info for each app:
 When removing OEM apps, consider these open-source alternatives (explore more in our [apps collection](../apps-and-modules/)):
 
 ### Core Apps
-- **Launcher**: [Lawnchair](https://lawnchair.app/), [Nova Launcher](https://novalauncher.com/) (see [more launchers](../apps-and-modules/#launchers-and-home-screen))
+- **Launcher**: [Lawnchair](https://lawnchair.app/), [Nova Launcher](https://novalauncher.com/) (see [more launchers](../apps-and-modules/customization#launchers-home-screen))
 - **Gallery**: [Fossify Gallery](https://github.com/FossifyOrg/Gallery)
-- **File Manager**: [Material Files](https://github.com/zhanghai/MaterialFiles) (see [file managers](../apps-and-modules/#file-management))
+- **File Manager**: [Material Files](https://github.com/zhanghai/MaterialFiles) (see [file managers](../apps-and-modules/file-management#file-managers))
 - **Camera**: [Open Camera](https://opencamera.sourceforge.io/)
 
 ### Communication
-- **SMS**: [QKSMS](https://github.com/moezbhatti/qksms)
+- **SMS**: [QUIK SMS](https://github.com/quik-sms/quik)
 - **Email**: [FairEmail](https://email.faircode.eu/), [K-9 Mail](https://k9mail.app/)
 - **Browser**: [Firefox](https://www.mozilla.org/en-US/firefox/mobile/), [Brave](https://play.google.com/store/apps/details?id=com.brave.browser)
 
 ### Productivity
 - **Notes**: [Standard Notes](https://standardnotes.com/), [Joplin](https://joplinapp.org/)
 - **Calendar**: [Simple Calendar](https://github.com/SimpleMobileTools/Simple-Calendar)
-- **Keyboard**: [OpenBoard](https://github.com/openboard-team/openboard)
+- **Keyboard**: [HeliBoard](https://github.com/HeliBorg/HeliBoard)
 
 ## Monitoring and Maintenance
 
@@ -303,12 +291,12 @@ When removing OEM apps, consider these open-source alternatives (explore more in
 
 After successful debloating, you should notice:
 - **Faster boot times**
-- **Improved battery life** (also see [battery optimization apps](../apps-and-modules/#battery-and-power-management))
+- **Improved battery life** (also see [battery optimization apps](../apps-and-modules/performance))
 - **More available storage**
 - **Reduced background data usage**
 - **Fewer unwanted notifications**
 
-For additional performance improvements, check out [performance optimization apps](../apps-and-modules/#performance-and-optimization).
+For additional performance improvements, check out [performance optimization apps](../apps-and-modules/performance#performance-optimization).
 
 ## Advanced Techniques
 
@@ -360,6 +348,6 @@ With proper care and the right tools, you can significantly improve your Android
 - [How to Root Android Devices](../rooting-guides/) - Get root access for advanced debloating
 - [ADB Setup Guide](../rooting-guides/how-to-unlock-bootloader.md#step-5-test-adb-connection) - Enable USB debugging
 - [System-Wide Ad Blocking](./android-adblocking.md) - Block ads after debloating
-- [App Management Tools](../apps-and-modules/#app-management-and-control) - More app control solutions
-- [Performance Optimization Apps](../apps-and-modules/#performance-and-optimization) - Further speed improvements
-- [Backup Solutions](../apps-and-modules/#backup-and-restore) - Protect your data before debloating
+- [App Management Tools](../apps-and-modules/system#app-package-management) - More app control solutions
+- [Performance Optimization Apps](../apps-and-modules/performance#performance-optimization) - Further speed improvements
+- [Backup Solutions](../apps-and-modules/backup#backup-restore) - Protect your data before debloating

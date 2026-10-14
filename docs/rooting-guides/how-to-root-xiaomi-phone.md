@@ -1,14 +1,8 @@
 ---
 layout: doc
-title: Xiaomi/Redmi/POCO Root Guide 2026
+title: Xiaomi/Redmi/POCO Root Guide
 description: Complete guide to root Xiaomi, Redmi, and POCO devices. Navigate HyperOS/MIUI, Mi Unlock Tool, anti-rollback protection, and Magisk installation.
 head:
-  - - link
-    - rel: canonical
-      href: https://awesome-android-root.org/rooting-guides/how-to-root-xiaomi-phone
-  - - meta
-    - property: og:type
-      content: article
   - - meta
     - property: og:title
       content: Complete Xiaomi Rooting Guide - All Models Supported
@@ -16,14 +10,8 @@ head:
     - property: og:description
       content: Root any Xiaomi device with our comprehensive guide covering Mi Unlock Tool, bootloader unlock and Magisk installation for MIUI/HyperOS.
   - - meta
-    - property: og:url
-      content: https://awesome-android-root.org/rooting-guides/how-to-root-xiaomi-phone
-  - - meta
     - property: og:image
-      content: https://awesome-android-root.org/images/og/xiaomi.png
-  - - meta
-    - name: twitter:card
-      content: summary_large_image
+      content: https://awesome-android-root.xyz/images/og/xiaomi.png
   - - meta
     - name: twitter:title
       content: Complete Xiaomi Rooting Guide - All Models
@@ -31,8 +19,14 @@ head:
     - name: twitter:description
       content: Root any Xiaomi device with Mi Unlock Tool and Magisk installation guide.
   - - meta
-    - name: keywords
-      content: xiaomi root guide, xiaomi rooting, miui root, hyperos root, mi unlock tool, xiaomi bootloader unlock, xiaomi magisk, redmi root guide, poco root guide
+    - name: twitter:creator
+      content: "@awsm_and_root"
+  - - meta
+    - name: twitter:image
+      content: https://awesome-android-root.xyz/images/og/xiaomi.png
+  - - meta
+    - name: twitter:image:alt
+      content: Xiaomi Root Guide - All Models
   - - meta
     - name: author
       content: Awesome Android Root Project
@@ -59,15 +53,15 @@ head:
       content: index, follow
 ---
 
-# Complete Xiaomi Rooting Guide (2026 Edition)
+# Complete Xiaomi Rooting Guide
 
 This page focuses on Xiaomi/Redmi/POCO specifics (Mi Unlock, ARB, HyperOS, payload extraction). For universal prep and Magisk steps, see: [Main Rooting Guide](./index.md), [Bootloader Unlocking](./how-to-unlock-bootloader.md), and [Magisk Guide](./magisk-guide.md).
 
 ## 🔗 Essential Resources
-- [📖 Main Rooting Guide](./index.md) — Universal rooting principles and safety
-- [🔓 Bootloader Unlocking](./how-to-unlock-bootloader.md) — General bootloader concepts
-- [🛠️ Custom Recovery](./how-to-install-custom-recovery.md) — TWRP installation guide
-- [❓ FAQ & Troubleshooting](../faqs.md) — Solutions for common issues
+- [📖 Main Rooting Guide](./index.md) - Universal rooting principles and safety
+- [🔓 Bootloader Unlocking](./how-to-unlock-bootloader.md) - General bootloader concepts
+- [🛠️ Custom Recovery](./how-to-install-custom-recovery.md) - TWRP installation guide
+- [❓ FAQ & Troubleshooting](../faqs.md) - Solutions for common issues
 
 ## Xiaomi Rooting Complexity
 
@@ -92,37 +86,14 @@ Xiaomi is among the strictest OEMs for unlocking/root.
 
 ## Device Compatibility
 
-### Supported Device Lines
+Most Xiaomi/Redmi/POCO devices with unlockable bootloaders can be rooted. Check [XDA Forums](https://forum.xda-developers.com/) for your specific model's status.
 
-<details><summary>👉 Click to expand the list</summary>
+### Incompatible / Restricted Devices
 
-- Mi/Xiaomi series (Flagship):
-  - Xiaomi 14/14 Pro/14 Ultra (HyperOS)
-  - Xiaomi 13/13 Pro/13 Ultra (MIUI 14 → HyperOS)
-  - Xiaomi 12/12 Pro/12S/12T series (good dev support)
-  - Mi 11/11 Pro/11 Ultra (excellent ROM/kernel ecosystem)
-  - Older Mi devices (generally well supported)
-- Redmi series:
-  - Redmi Note 13/13 Pro/13 Pro+ (very popular, lively community)
-  - Redmi 13 5G/4G
-  - Redmi Note 12 family
-  - Redmi K70/K70 Pro/K70 Ultra, K60 series
-  - Older Redmi devices (strong community support)
-- POCO:
-  - POCO X6/X6 Pro
-  - POCO F6/F6 Pro
-  - POCO M6/M6 Pro
-  - POCO C series (support varies)
-
-</details>
-
-### Restricted/Problematic Devices
-
-- Regional:
-  - CN (China) variants: strictest rules; many models are not unlockable via official means
-  - India: extra checks; sometimes longer timers
-  - EEA/Global: generally easier than CN, but still variable
-- Carrier/Enterprise/Education SKUs: often locked down or not supported
+- **CN (China) variants:** Strictest rules; many models are not unlockable via official means
+- **Carrier/Enterprise/Education SKUs:** Often locked down or not supported
+- **India variants:** Extra verification checks; sometimes longer waiting timers
+- **Newer HyperOS devices:** May require additional eligibility checks beyond the standard waiting period
 
 ## Prerequisites & Setup
 
@@ -140,7 +111,7 @@ Note on waiting time: Xiaomi’s timer is variable now. Users report 72h, 168h (
 2. Platform Tools (ADB/Fastboot): https://developer.android.com/studio/releases/platform-tools
 3. Magisk APK (latest stable): https://github.com/topjohnwu/Magisk/releases
 4. Stock Firmware for your exact model/build:
-   - Xiaomi Firmware Updater: https://xiaomifirmwareupdater.com
+   - Xiaomi Firmware Updater: https://xmfirmwareupdater.com/
    - Official MIUI/HyperOS Downloads: https://c.mi.com/global/miuidownload/index
 5. USB Drivers:
    - [Google USB Driver](https://developer.android.com/studio/run/win-usb) or Xiaomi USB drivers; avoid outdated Mi PC Suite (“Mi Assistant”) unless specifically needed.
@@ -378,11 +349,10 @@ adb devices
 - Consider modules/apps that tame background killing (varies per build)
 
 **Play Integrity (SafetyNet replacement):**
-- Passing device integrity often needs:
-  - Latest Magisk + Zygisk enabled
-  - Play Integrity Fix module (latest maintained fork)
-  - Proper DenyList configuration (Google Play services, GMS, wallet/banking)
-  - Clear Play Store/Services data after configuration, then wait a few minutes
+- Passing device integrity needs a Zygisk implementation, a Play Integrity Fix module and a correct
+  DenyList, then clearing Play Store/Services data and waiting a few minutes
+- Full module choices and configuration order:
+  [Play Integrity and Banking Apps](../troubleshooting.md#play-integrity-and-banking-apps)
 
 ## Success Verification
 

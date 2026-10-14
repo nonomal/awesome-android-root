@@ -3,12 +3,6 @@ layout: doc
 title: Complete OnePlus Rooting Guide
 description: "Master guide to root all OnePlus devices - OnePlus 15, 13, 12, 11, 10, Nord series with bootloader unlock and Magisk installation for OxygenOS."
 head:
-  - - link
-    - rel: canonical
-      href: https://awesome-android-root.org/rooting-guides/how-to-root-oneplus-phone
-  - - meta
-    - property: og:type
-      content: article
   - - meta
     - property: og:title
       content: Complete OnePlus Rooting Guide - All Models Supported
@@ -16,14 +10,8 @@ head:
     - property: og:description
       content: Root any OnePlus device with our comprehensive guide covering bootloader unlock, MSM tool, custom recovery and Magisk installation for OxygenOS.
   - - meta
-    - property: og:url
-      content: https://awesome-android-root.org/rooting-guides/how-to-root-oneplus-phone
-  - - meta
     - property: og:image
-      content: https://awesome-android-root.org/images/og/oneplus.png
-  - - meta
-    - name: twitter:card
-      content: summary_large_image
+      content: https://awesome-android-root.xyz/images/og/oneplus.png
   - - meta
     - name: twitter:title
       content: Complete OnePlus Rooting Guide - All Models
@@ -31,8 +19,14 @@ head:
     - name: twitter:description
       content: Root any OnePlus phone with bootloader unlock and Magisk installation guide.
   - - meta
-    - name: keywords
-      content: oneplus root guide, oneplus rooting, oneplus bootloader unlock, oneplus magisk guide, oneplus custom recovery, oneplus 12 root, oneplus 11 root, oneplus 10 root, oxygenos root, oneplus msm tool, oneplus nord root
+    - name: twitter:creator
+      content: "@awsm_and_root"
+  - - meta
+    - name: twitter:image
+      content: https://awesome-android-root.xyz/images/og/oneplus.png
+  - - meta
+    - name: twitter:image:alt
+      content: OnePlus Root Guide - All Models
   - - meta
     - name: author
       content: Awesome Android Root Project
@@ -65,7 +59,7 @@ Root OnePlus devices with straightforward bootloader unlock. Covers OxygenOS and
 
 ## Quick Navigation
 
-- [Supported Devices](#supported-devices)
+- [Device Compatibility](#device-compatibility)
 - [Prerequisites](#prerequisites)
 - [Bootloader Unlock](#unlock-bootloader)
 - [Root Installation](#root-installation)
@@ -92,6 +86,19 @@ Root OnePlus devices with straightforward bootloader unlock. Covers OxygenOS and
 **OEM Unlocking:** Must be available in Developer Options. Some T-Mobile models cannot unlock.
 :::
 
+### Device Compatibility
+
+Most OnePlus devices with unlockable bootloaders can be rooted. Check [XDA Forums](https://forum.xda-developers.com/c/oneplus.11993/) for your specific model.
+
+::: warning INCOMPATIBLE DEVICES
+- **T-Mobile and some carrier-branded models** may have permanently locked bootloaders
+- **Chinese-market models** running ColorOS may have additional restrictions
+:::
+
+::: tip 💡 Locked bootloader? Temporary root exists
+On several OnePlus/OPPO/realme devices (OnePlus 13/15, Ace 6T, OPPO Pad 4 Pro and more), the **ghostlock-oneplus** exploit uses the GhostLock kernel bug (CVE-2026-43499) to grant **session-only root without unlocking the bootloader** - nothing flashed, nothing survives a reboot. See [Root Without Unlocking the Bootloader](./root-without-unlocking-bootloader.md).
+:::
+
 ### Hardware Requirements
 
 - OnePlus device (any supported model)
@@ -112,8 +119,9 @@ Root OnePlus devices with straightforward bootloader unlock. Covers OxygenOS and
    - Or download from OnePlus site
 
 3. **Stock Firmware** (for recovery)
-   - Download via [Oxygen Updater](https://play.google.com/store/apps/details?id=com.arjanvlek.oxygenupdater) (Recommended)
+   - Download via [Oxygen Updater](https://github.com/oxygen-updater/os-updater/releases/latest) (Recommended)
    - Or [XDA Forums](https://xdaforums.com/) (Alternative)
+   - or https://roms.danielspringer.at/
 
 **On Device:**
 
@@ -214,24 +222,15 @@ Or check on device boot:
 
 ### Determine Correct Image
 
-| Device | Android Version | Image to Patch | Notes |
-| --- | --- | --- | --- |
-| **OnePlus 15 / 15R** | Android 15 / 16 | `init_boot.img` | 2026 Flagships; Snapdragon 8 Gen 5 / 8s Gen 4 |
-| **OnePlus 13 / 13R** | Android 15 | `init_boot.img` | 2025 Flagships; uses GKI 2.0 |
-| **OnePlus Open 1 / 2** | Android 14 / 15 | `init_boot.img` | Foldable series; requires specific Magisk versions for UI |
-| **OnePlus 12 / 12R** | Android 14 / 15 | `init_boot.img` | Transitioned to unified OxygenOS/ColorOS base |
-| **OnePlus 11 / 11R** | Android 13 / 14 / 15 | `init_boot.img` | Snapdragon 8 Gen 2; standard GKI layout |
-| **Nord 5 / 6 Series** | Android 15 / 16 | `init_boot.img` | Latest mid-range (Nord 6 / CE 6 / Nord 5) |
-| **Nord 4 / CE 4** | Android 14 | `init_boot.img` | Mid-range 2024 releases |
-| **OnePlus 10 Pro / 10T** | Android 12 / 13 / 14 | `init_boot.img` | If running OOS 13+, use `init_boot`; OOS 12 uses `boot` |
-| **OnePlus 9 Series** | Android 11 / 12 / 13 | `boot.img` | Check Magisk for "Ramdisk: Yes" status |
-| **OnePlus 8 / 8T / 8 Pro** | Android 11 / 12 / 13 | `boot.img` | Legacy OxygenOS architecture |
-| **Nord 1 / 2 / 3** | Android 11 - 14 | `boot.img` | Use `boot.img` unless updated to Android 14 GKI |
+| Device Generation | Image to Patch |
+|---|---|
+| OnePlus 10 and newer (Android 13+) | `init_boot.img` |
+| OnePlus 9 and older | `boot.img` |
 
 **Quick Check in Magisk:**
 - Install Magisk app first
 - Check "Ramdisk" field
-- "Yes" = boot.img, "No" = init_boot.img
+- "Yes" = `boot.img`, "No" = `init_boot.img`
 
 ::: tip Verified Boot
 Always ensure you have a copy of the stock `vbmeta.img`. When flashing a patched image on newer OxygenOS versions, you may need to disable verity using:
@@ -245,7 +244,7 @@ Always ensure you have a copy of the stock `vbmeta.img`. When flashing a patched
 **Step 1: Download Stock Firmware**
 
 **Using Oxygen Updater (Recommended):**
-1. Install [Oxygen Updater](https://play.google.com/store/apps/details?id=com.arjanvlek.oxygenupdater) on your device
+1. Install [Oxygen Updater](https://github.com/oxygen-updater/os-updater/releases/latest) on your device
 2. Launch app and verify device name
 3. Go to Settings > Update Method > Select "Full"
 4. Enable "Advanced Mode" in settings
@@ -288,8 +287,8 @@ adb push boot.img /sdcard/Download/
 **Step 4: Install Magisk and Patch**
 
 ```bash
-# Install Magisk APK
-adb install Magisk-v27.0.apk
+# Install Magisk APK (substitute the version you downloaded)
+adb install Magisk-*.apk
 ```
 
 On device:
@@ -365,7 +364,7 @@ fastboot boot twrp.img
 1. Download Magisk ZIP
 2. Push to device:
 ```bash
-adb push Magisk-v27.0.zip /sdcard/
+adb push Magisk-*.zip /sdcard/
 ```
 3. In TWRP: Install > Select ZIP
 4. Swipe to flash
@@ -388,17 +387,13 @@ Magisk > Settings:
 
 **Step 2: Configure DenyList**
 
-Add to DenyList:
-- Google Play Services (all)
-- Google Play Store
-- Banking apps
-- Payment apps (Google Pay, etc.)
-- SafetyNet-sensitive apps
+Add Google Play Services, Google Play Store, your banking apps, payment apps and any other
+Play Integrity-sensitive app. Expand each entry and cover all sub-processes.
 
 **Step 3: Install Essential Modules**
 
 Recommended for OnePlus:
-- **Universal SafetyNet Fix** - Banking compatibility
+- **Play Integrity Fix** - Banking compatibility
 - **Shamiko** - Enhanced root hiding
 - **LSPosed (Zygisk)** - Framework
 - **Systemless Hosts** - Ad blocking
@@ -513,15 +508,10 @@ Solutions:
 3. Reinstall via Direct Install
 4. Clear Magisk app data
 
-**SafetyNet Fails**
+**Play Integrity Fails**
 
-Solutions:
-1. Enable Zygisk
-2. Configure DenyList
-3. Hide Magisk app
-4. Install SafetyNet Fix module
-5. Clear Google Play Services
-6. Reboot
+Follow the module stack and configuration order in
+[Play Integrity and Banking Apps](../troubleshooting.md#play-integrity-and-banking-apps).
 
 ---
 
@@ -591,7 +581,7 @@ fastboot oem lock
 - [OnePlus Support](https://www.oneplus.com/support) - Official support
 
 **Firmware Downloads:**
-- [Oxygen Updater](https://play.google.com/store/apps/details?id=com.arjanvlek.oxygenupdater) - Primary firmware source (App)
+- [Oxygen Updater](https://github.com/oxygen-updater/os-updater/releases/latest) - Primary firmware source (App)
 - [Oxygen Updater GitHub](https://github.com/oxygen-updater/oxygen-updater) - Alternative download
 
 **Developer Community:**

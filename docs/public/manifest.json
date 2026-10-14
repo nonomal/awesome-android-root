@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+
+  "id": "/",
+  "name": "Awesome Android Root",
+  "short_name": "Android Root",
+  "description": "The ultimate collection of Android rooting apps, Magisk modules, KernelSU modules, recoveries, kernels, and developer resources.",
+
+  "lang": "en",
+  "dir": "ltr",
+
+  "start_url": "/",
+  "scope": "/",
+
+  "display": "standalone",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone"
+  ],
+
+  "orientation": "portrait",
+
+  "theme_color": "#121212",
+  "background_color": "#121212",
+
+  "categories": [
+    "developer",
+    "utilities",
+    "productivity",
+    "education"
+  ],
+
+  "icons": [
+    {
+      "src": "/images/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

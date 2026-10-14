@@ -1,32 +1,53 @@
 ---
 layout: doc
-title: Google Pixel Root Guide 2026
+title: Google Pixel Root Guide
 description: Complete guide to root Google Pixel devices. All models from Pixel 1 to Pixel 10 Pro. Bootloader unlock, Magisk installation, and OTA handling.
 head:
-  - - link
-    - rel: canonical
-      href: https://awesome-android-root.org/rooting-guides/how-to-root-pixel-phone
-  - - meta
-    - property: og:type
-      content: article
   - - meta
     - property: og:title
-      content: Google Pixel Root Guide 2026
+      content: Google Pixel Root Guide
   - - meta
     - property: og:description
       content: Root any Google Pixel device with comprehensive guide covering bootloader unlock, factory images, and Magisk installation.
   - - meta
-    - property: og:url
-      content: https://awesome-android-root.org/rooting-guides/how-to-root-pixel-phone
-  - - meta
     - property: og:image
-      content: https://awesome-android-root.org/images/og/google-pixel.png
+      content: https://awesome-android-root.xyz/images/og/google-pixel.png
   - - meta
-    - name: twitter:card
-      content: summary_large_image
+    - name: twitter:creator
+      content: "@awsm_and_root"
   - - meta
-    - name: keywords
-      content: pixel root 2026, pixel 9 root, pixel 8 root, google pixel magisk, pixel bootloader unlock
+    - name: twitter:title
+      content: Google Pixel Root Guide
+  - - meta
+    - name: twitter:description
+      content: Root any Google Pixel device with comprehensive guide covering bootloader unlock, factory images, and Magisk installation.
+  - - meta
+    - name: twitter:image
+      content: https://awesome-android-root.xyz/images/og/google-pixel.png
+  - - meta
+    - name: twitter:image:alt
+      content: Google Pixel Root Guide - Bootloader Unlock & Magisk Installation
+  - - meta
+    - name: author
+      content: Awesome Android Root Project
+  - - meta
+    - property: article:author
+      content: https://github.com/awesome-android-root/awesome-android-root
+  - - meta
+    - property: article:section
+      content: Device Rooting
+  - - meta
+    - property: article:tag
+      content: Google Pixel
+  - - meta
+    - property: article:tag
+      content: Magisk
+  - - meta
+    - property: article:tag
+      content: Bootloader Unlock
+  - - meta
+    - property: article:tag
+      content: Android Rooting
   - - meta
     - name: robots
       content: index, follow
@@ -43,7 +64,7 @@ Root any Google Pixel device with the easiest rooting process in Android. Clean 
 ## Quick Navigation
 
 - [Prerequisites](#prerequisites)
-- [Supported Devices](#supported-devices)
+- [Device Compatibility](#device-compatibility)
 - [Bootloader Unlock](#unlock-bootloader)
 - [Root Methods](#root-installation-methods)
   - [Pixel Flasher (Easiest)](#method-0-pixel-flasher-gui-tool-easiest)
@@ -79,6 +100,7 @@ Unlocking bootloader **erases everything** on your device. Backup all data first
 1. **[Android Platform Tools](https://developer.android.com/studio/releases/platform-tools)** - ADB/Fastboot
 2. **[Google USB Drivers](https://developer.android.com/studio/run/win-usb)** - Windows only
 3. **[Magisk APK](https://github.com/topjohnwu/Magisk/releases)** - Latest stable
+    - **Google Pixel / Pixel XL (1st gen):** use **[Magisk v30.6](https://github.com/topjohnwu/Magisk/releases/tag/v30.6)** until [issue #9808](https://github.com/topjohnwu/Magisk/issues/9808) is resolved.
 4. **[Pixel Flasher](https://github.com/badabing2005/PixelFlasher)** - GUI tool (optional)
 
 ### Enable Developer Options
@@ -98,30 +120,34 @@ adb devices
 
 ---
 
-## Supported Devices
+## Device Compatibility
 
-<details><summary>📱 All Supported Pixel Models</summary>
+Google Pixel devices are the most root-friendly Android phones. All Pixel models (1 through current generation) support bootloader unlocking and rooting.
 
-### Modern Pixels (Use init_boot.img)
-- **Pixel 10 Series** (2026) - Pro XL, Pro, Standard
-- **Pixel 9 Series** (2024) - Pro XL, Pro, Standard, Pro Fold
-- **Pixel 8 Series** (2023) - Pro, Standard, 8a
-- **Pixel 7 Series** (2022) - Pro, Standard, 7a
-- **Pixel 6 Series** (2021) - Pro, Standard, 6a (Android 13+)
-
-### Legacy Pixels (Use boot.img)
-- **Pixel 6 Series** (Android 12 only)
-- **Pixel 5 Series** - 5a 5G, 5
-- **Pixel 4 Series** - XL, Standard, 4a 5G, 4a
-- **Pixel 3 Series** - XL, Standard, 3a XL, 3a
-- **Pixel 2 Series** - XL, Standard
-- **Pixel 1 Series** - XL, Standard
+### Incompatible Devices
 
 ::: warning CARRIER LOCKS
-Verizon and some carrier models may have OEM unlock disabled. Verify before purchase.
+**Verizon and some carrier-locked models** may have OEM unlocking permanently disabled. Always verify "OEM unlocking" is available in Developer Options before purchasing a device for rooting.
 :::
 
-</details>
+::: tip 💡 Rather not unlock at all?
+**Root My Pixel** uses the GhostLock kernel bug (CVE-2026-43499) to give supported Pixel devices **temporary, session-only root without unlocking the bootloader** - staged on-device via Shizuku, cleared by rebooting. See [Root Without Unlocking the Bootloader](./root-without-unlocking-bootloader.md).
+:::
+
+### Image Type Quick Reference
+
+| Device Generation | Image to Patch |
+|-------------------|----------------|
+| Pixel 7 and newer | `init_boot.img` |
+| Pixel 6 (Android 13+) | `init_boot.img` |
+| Pixel 6 (Android 12) | `boot.img` |
+| Pixel 5 and older | `boot.img` |
+
+::: tip QUICK CHECK
+Open Magisk app → Check "Ramdisk" field:
+- **Yes** = Use `boot.img`
+- **No** = Use `init_boot.img`
+:::
 
 ---
 
@@ -327,12 +353,9 @@ fastboot flash boot stock_boot.img  # Or init_boot
 fastboot reboot
 ```
 
-### SafetyNet/Play Integrity Fails
-1. Enable Zygisk
-2. Configure DenyList
-3. Install Universal SafetyNet Fix
-4. Hide Magisk app
-5. Clear Google Play Services data
+### Play Integrity Fails
+Follow the module stack and configuration order in
+[Play Integrity and Banking Apps](../troubleshooting.md#play-integrity-and-banking-apps).
 
 ### Lost Root After OTA
 - Extract new boot image
@@ -437,5 +460,5 @@ After rooting your Pixel:
 ---
 
 ::: tip SUCCESS
-Your Pixel is now rooted! Remember to keep Magisk updated and always backup before major changes.
+Your Pixel is now rooted! Remember to keep Magisk updated and always backup before major changes - except on Pixel 1 / 1st gen Pixel devices, where you should stay on Magisk v30.6 until the upstream issue is resolved.
 :::

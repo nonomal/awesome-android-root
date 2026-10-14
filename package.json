@@ -1,9 +1,15 @@
 {
   "name": "awesome-android-root",
-  "version": "3.1.0",
-  "description": "A curated list of best Android root applications and best magisk modules. Features over 400+ apps across categories like system mods, privacy, customization, and development tools.",
+  "version": "5.1.0",
+  "description": "The ultimate Android rooting hub - a curated list of 650+ top root apps, Magisk modules, KernelSU modules, LSPosed modules, and comprehensive step-by-step rooting guides.",
   "private": true,
-  "homepage": "https://awesome-android-root.org",
+  "license": "MIT",
+  "packageManager": "bun@1.4.2",
+  "author": {
+    "name": "awesome-android-root",
+    "url": "https://github.com/awesome-android-root"
+  },
+  "homepage": "https://awesome-android-root.xyz",
   "repository": {
     "type": "git",
     "url": "https://github.com/awesome-android-root/awesome-android-root.git"
@@ -13,34 +19,39 @@
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",
-    "docs:build": "node scripts/build-docs.js && vitepress build docs",
+    "docs:build": "sh -c 'if [ -f .git/shallow ]; then git fetch --unshallow || true; fi' && bash scripts/counter.sh && vitepress build docs",
     "docs:preview": "vitepress preview docs",
-    "docs:build:pwa": "vitepress build docs"
-  },
-  "devDependencies": {
-    "vitepress": "^1.6.4",
-    "@vite-pwa/vitepress": "^1.1.0"
-  },
-  "optionalDependencies": {
-    "workbox-window": "^7.3.0"
+    "lint:entries": "node scripts/lint-entries.mjs",
+    "check:counts": "node scripts/check-counts.mjs",
+    "check:links": "python3 scripts/check_links.py"
   },
   "keywords": [
     "android",
     "root",
     "magisk",
-    "rooting",
-    "android-apps",
-    "awesome-list",
-    "lsposed",
-    "xposed",
+    "magisk-modules",
     "kernelsu",
+    "kernelsu-modules",
+    "lsposed",
+    "lsposed-modules",
+    "xposed",
+    "xposed-modules",
+    "rooting",
+    "root-guide",
+    "android-apps",
     "android-tools",
+    "awesome-list",
+    "awesome",
     "pwa",
     "vitepress"
   ],
-  "author": {
-    "name": "awesome-android-root",
-    "url": "https://github.com/awesome-android-root"
+  "devDependencies": {
+    "@vite-pwa/vitepress": "^1.1.0",
+    "vitepress": "2.0.0-alpha.20",
+    "vitepress-plugin-llms": "^1.14.0",
+    "workbox-window": "^7.4.1"
   },
-  "license": "MIT"
+  "engines": {
+    "node": ">=24"
+  }
 }

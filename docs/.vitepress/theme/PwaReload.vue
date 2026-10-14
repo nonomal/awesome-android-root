@@ -1,27 +1,17 @@
 <template>
-  <div v-if="showReload || isOffline" class="pwa-toast" :class="{ 'pwa-toast--offline': isOffline }">
-    <!-- Offline notification -->
+  <div
+    v-if="isOffline"
+    class="pwa-toast"
+    :class="{ 'pwa-toast--offline': isOffline }"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  >
     <div v-if="isOffline" class="pwa-toast__content">
       <svg class="pwa-toast__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9 9V5h2v4H9zm0 4v-2h2v2H9z" fill="currentColor"/>
       </svg>
       <span class="pwa-toast__message">You're offline - Some features may be limited</span>
-    </div>
-    
-    <!-- Update notification -->
-    <div v-else-if="showReload" class="pwa-toast__content">
-      <svg class="pwa-toast__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm3.707 5.293L9 12l-2.707-2.707 1.414-1.414L9 9.172l3.293-3.293 1.414 1.414z" fill="currentColor"/>
-      </svg>
-      <span class="pwa-toast__message">{{ updateMessage }}</span>
-      <button 
-        v-if="!isAutoUpdate" 
-        @click="reload" 
-        class="pwa-toast__button"
-        aria-label="Reload page"
-      >
-        Reload
-      </button>
     </div>
   </div>
 </template>
@@ -29,156 +19,21 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 
-// State
-const showReload = ref(false)
 const isOffline = ref(false)
-const updateMessage = ref('New content available!')
-const isAutoUpdate = ref(true) // Since you're using autoUpdate
 
-// Service worker registration
-let registration = null
-let updateCheckInterval = null
-
-// Check for updates
-const checkForUpdates = async () => {
-  if (registration?.waiting) {
-    showUpdateNotification()
-  } else if (registration?.active) {
-    try {
-      await registration.update()
-    } catch (error) {
-      console.error('SW update check failed:', error)
-    }
-  }
-}
-
-// Show update notification
-const showUpdateNotification = () => {
-  // With autoUpdate, just show a brief notification
-  showReload.value = true
-  updateMessage.value = 'App updated! Refreshing...'
-  
-  // Auto-hide after 3 seconds for autoUpdate
-  if (isAutoUpdate.value) {
-    setTimeout(() => {
-      showReload.value = false
-    }, 3000)
-  }
-}
-
-// Reload the page
-const reload = () => {
-  if (registration?.waiting) {
-    registration.waiting.postMessage({ type: 'SKIP_WAITING' })
-  }
-  window.location.reload()
-}
-
-// Handle online/offline status
-const updateOnlineStatus = () => {
+function updateOnlineStatus() {
   isOffline.value = !navigator.onLine
-  
-  // Hide offline message after 5 seconds when back online
-  if (!isOffline.value && showReload.value) {
-    setTimeout(() => {
-      if (!showReload.value) {
-        isOffline.value = false
-      }
-    }, 5000)
-  }
 }
 
-// Handle visibility change
-const handleVisibilityChange = () => {
-  if (!document.hidden && navigator.onLine) {
-    // Check for updates when page becomes visible
-    checkForUpdates()
-  }
-}
-
-onMounted(async () => {
-  // Check if service worker is supported
-  if (!('serviceWorker' in navigator)) {
-    return
-  }
-
-  try {
-    // Get service worker registration
-    registration = await navigator.serviceWorker.getRegistration()
-    
-    if (!registration) {
-      // Wait for registration
-      navigator.serviceWorker.ready.then(reg => {
-        registration = reg
-        setupServiceWorkerListeners()
-      })
-    } else {
-      setupServiceWorkerListeners()
-    }
-
-    // Setup network status listeners
+onMounted(() => {
+  updateOnlineStatus()
     window.addEventListener('online', updateOnlineStatus)
     window.addEventListener('offline', updateOnlineStatus)
-    document.addEventListener('visibilitychange', handleVisibilityChange)
-    
-    // Initial status check
-    updateOnlineStatus()
-    
-    // Check for updates every 60 minutes (less aggressive than 30 minutes)
-    updateCheckInterval = setInterval(checkForUpdates, 60 * 60 * 1000)
-    
-    // Check for updates on mount
-    await checkForUpdates()
-    
-  } catch (error) {
-    console.error('PWA initialization error:', error)
-  }
 })
 
-// Setup service worker event listeners
-const setupServiceWorkerListeners = () => {
-  if (!registration) return
-
-  // Listen for waiting service worker
-  registration.addEventListener('updatefound', () => {
-    const newWorker = registration.installing
-    
-    newWorker?.addEventListener('statechange', () => {
-      if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-        showUpdateNotification()
-      }
-    })
-  })
-
-  // Listen for controller change (autoUpdate)
-  navigator.serviceWorker.addEventListener('controllerchange', () => {
-    // With autoUpdate, the page will reload automatically
-    // Show a brief notification
-    updateMessage.value = 'App updated successfully!'
-    showReload.value = true
-    setTimeout(() => {
-      showReload.value = false
-    }, 2000)
-  })
-
-  // Listen for messages from service worker
-  navigator.serviceWorker.addEventListener('message', (event) => {
-    if (event.data?.type === 'CACHE_UPDATED') {
-      console.log('Cache updated:', event.data.updatedCache)
-    }
-  })
-}
-
 onUnmounted(() => {
-  // Clean up listeners
   window.removeEventListener('online', updateOnlineStatus)
   window.removeEventListener('offline', updateOnlineStatus)
-  document.removeEventListener('visibilitychange', handleVisibilityChange)
-  
-  // Clear interval
-  if (updateCheckInterval) {
-    clearInterval(updateCheckInterval)
-  }
 })
 </script>
 
@@ -201,13 +56,13 @@ onUnmounted(() => {
 }
 
 .pwa-toast--offline {
-  background: #ff6b6b;
-  color: white;
-  border-color: #ff5252;
+  background: var(--warn-soft);
+  color: var(--warn);
+  border-color: var(--warn);
 }
 
 .pwa-toast--offline .pwa-toast__icon {
-  color: white;
+  color: var(--warn);
 }
 
 .pwa-toast__content {
@@ -229,15 +84,15 @@ onUnmounted(() => {
 }
 
 .pwa-toast--offline .pwa-toast__message {
-  color: white;
+  color: var(--warn);
 }
 
 .pwa-toast__button {
   flex-shrink: 0;
   padding: 4px 12px;
   margin-left: 8px;
-  background: var(--vp-c-brand);
-  color: white;
+  background: var(--vp-c-brand-1);
+  color: var(--brand-contrast);
   border: none;
   border-radius: 4px;
   font-size: 14px;
@@ -292,10 +147,6 @@ onUnmounted(() => {
 .dark .pwa-toast {
   background: var(--vp-c-bg-elv);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-.dark .pwa-toast--offline {
-  background: #c53030;
 }
 
 /* Reduce motion */

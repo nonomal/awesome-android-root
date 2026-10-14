@@ -1,19 +1,16 @@
 ---
 layout: doc
-title: Best Android Root Apps and Modules
-description: Download & explore 430+ best Android root apps, Magisk, KernelSU & LSPosed (Xposed) modules & rooting guides.
+title: Best Android Root Apps & Modules
+description: Browse a curated directory of 650+ Android root apps, Magisk, KernelSU, APatch and LSPosed modules, organized by use case with source and compatibility labels.
 head:
-  - - link
-    - rel: canonical
-      href: https://awesome-android-root.org/apps-and-modules/
   - - link
     - rel: alternate
       hreflang: en
-      href: https://awesome-android-root.org/apps-and-modules/
+      href: https://awesome-android-root.xyz/apps-and-modules/
   - - link
     - rel: alternate
       hreflang: x-default
-      href: https://awesome-android-root.org/apps-and-modules/
+      href: https://awesome-android-root.xyz/apps-and-modules/
   - - link
     - rel: dns-prefetch
       href: https://api.github.com
@@ -24,26 +21,14 @@ head:
     - property: og:type
       content: website
   - - meta
-    - property: og:site_name
-      content: Awesome Android Root
-  - - meta
-    - property: og:title
-      content: Best Android Root Apps and Modules | Awesome Android Root
-  - - meta
     - property: og:description
-      content: Download the best Android root apps, Magisk, KernelSU & LSPosed (Xposed) modules. Ultimate collection of 430+ curated root applications for Android customization, system optimization, and power user features.
-  - - meta
-    - property: og:url
-      content: https://awesome-android-root.org/apps-and-modules/
-  - - meta
-    - property: og:image
-      content: https://awesome-android-root.org/images/og.png
+      content: Browse 650+ curated Android root apps, Magisk, KernelSU, APatch and LSPosed modules organized by use case, framework and source.
   - - meta
     - property: og:image:secure_url
-      content: https://awesome-android-root.org/images/og.png
+      content: https://awesome-android-root.xyz/images/og.png
   - - meta
     - property: og:image:alt
-      content: Best Android Root Apps - 430+ Apps & Modules Collection
+      content: Best Android Root Apps & Modules - 650+ curated tools
   - - meta
     - property: og:image:width
       content: '1200'
@@ -54,269 +39,188 @@ head:
     - property: og:image:type
       content: image/png
   - - meta
-    - property: og:locale
-      content: en_US
-  - - meta
-    - property: og:updated_time
-      content: '2025-09-20T00:00:00Z'
-  - - meta
-    - name: twitter:card
-      content: summary_large_image
-  - - meta
-    - name: twitter:site
-      content: "@awsm_and_root"
-  - - meta
-    - name: twitter:creator
-      content: "@awsm_and_root"
-  - - meta
-    - name: twitter:domain
-      content: awesome-android-root.org
-  - - meta
-    - name: twitter:title
-      content: Best Android Root Apps and Modules | Awesome Android Root
-  - - meta
     - name: twitter:description
-      content: Download top Android root apps, Magisk, KernelSU & LSPosed (Xposed) modules. Ultimate collection of 430+ curated root applications for system optimization & customization.
-  - - meta
-    - name: twitter:image
-      content: https://awesome-android-root.org/images/og.png
-  - - meta
-    - name: twitter:image:alt
-      content: Android Root Apps Collection - 430+ curated applications and modules
-  - - meta
-    - http-equiv: Content-Security-Policy
-      content: upgrade-insecure-requests
-  - - meta
-    - name: theme-color
-      content: '#0f172a'
-  - - meta
-    - property: article:author
-      content: https://github.com/fynks
-  - - meta
-    - property: article:publisher
-      content: https://awesome-android-root.org
-  - - meta
-    - property: article:published_time
-      content: '2025-08-11T00:00:00Z'
-  - - meta
-    - property: article:modified_time
-      content: '2025-12-26T00:00:00Z'
-  - - meta
-    - property: article:section
-      content: Android Root Apps
-  - - meta
-    - property: article:tag
-      content: Android Root Apps
-  - - meta
-    - property: article:tag
-      content: Best Root Apps
-  - - meta
-    - property: article:tag
-      content: Magisk Modules
-  - - meta
-    - property: article:tag
-      content: LSPosed Framework
-  - - meta
-    - property: article:tag
-      content: KernelSU
-  - - meta
-    - property: article:tag
-      content: APatch
-  - - meta
-    - property: article:tag
-      content: Xposed Framework
-  - - meta
-    - property: article:tag
-      content: Root Apps Download
-  - - meta
-    - property: article:tag
-      content: Android Customization Apps
+      content: Browse 650+ curated Android root apps and modules organized by use case and root framework.
   - - meta
     - name: robots
-      content: index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1
-  - - meta
-    - name: googlebot
-      content: index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1
-  - - meta
-    - name: bingbot
-      content: index, follow
-  - - meta
-    - name: rating
-      content: safe for kids
-  - - meta
-    - name: distribution
-      content: global
-  - - meta
-    - name: revisit-after
-      content: 7 days
-  - - meta
-    - name: keywords
-      content: android root apps, best root apps 2026, magisk modules, lsposed framework, root applications, android customization, system modification, power user tools, rooted android, superuser apps, android root applications, kernelsu modules, kernelsu, kernelsu-next, root apps download, android system apps, rooted android apps, android customization apps, root tools android, android superuser apps, best magisk modules 2026, lsposed modules, apatch modules, root apps collection, android power user apps, system modification apps, android root utilities, rooting apps android, android root manager, xposed modules, android system tweaks, root access apps, android admin apps, superuser applications, android root toolkit, mobile root apps, android hacking apps, system level apps, root only apps, android privilege escalation, root permission apps, android system control, advanced android apps, pro android apps, developer android apps, android root solutions, systemless root apps, android firmware apps, bootloader unlock apps, custom recovery apps, android debugging apps, adb root apps, fastboot apps, android terminal apps, root file manager, android system monitor, cpu control apps, kernel management apps, android performance apps, memory management apps, battery optimization root, android automation root, tasker root, android scripting root, shell access apps, su apps android, root checker apps, safetynet bypass, magisk hide apps, root cloak apps, hide root apps, android security bypass, banking apps root, google pay root, root detection bypass, android privacy apps, ad blocking root apps, firewall root apps, network monitoring root, wifi analyzer root, vpn root apps, dns changer root, hosts file editor, system app remover, bloatware remover root, android debloating, system ui tuner root, status bar customization, navigation bar root, android theming root, substratum root, icon pack root, font changer root, dpi changer root, screen resolution root, android backup root, titanium backup, nandroid backup, android restore root, app data backup root, sms backup root, call log backup root, contacts backup root, android sync root, cloud backup root, android migration root, device cloning root, android emulation root, virtual machine android, android sandbox root, app isolation root, work profile root, dual apps root, app cloning root, parallel space root, multiple accounts root, android dual boot, android virtualization, container apps root, android development root, sdk tools root, adb tools root, fastboot tools root, android studio root, apk editor root, dex editor root, smali editor root, android reverse engineering, app patching root, mod apk tools, lucky patcher root, xposed installer, lsposed installer, magisk manager, supersu alternative, kingroot alternative, towelroot alternative, framaroot alternative, android root methods, one click root, universal root tools, device specific root, samsung root apps, xiaomi root apps, oneplus root apps, pixel root apps, huawei root apps, lg root apps, sony root apps, htc root apps, motorola root apps, nokia root apps, android tv root, android tablet root, android wear root, root apps 2024, root apps 2026, latest root apps, new root apps, trending root apps, popular root apps, top rated root apps, essential root apps, must have root apps, recommended root apps, best free root apps, premium root apps, paid root apps, opensource root apps, closed source root apps
-  - - script
-    - type: application/ld+json
-    - |
-      {
-        "@context": "https://schema.org",
-        "@type": ["WebPage", "CollectionPage", "SoftwareSourceCode"],
-        "name": "Best Android Root Apps and Modules | Awesome Android Root",
-        "alternateName": ["Android Root Apps", "Root Apps Collection", "Magisk Modules Collection"],
-        "url": "https://awesome-android-root.org/apps-and-modules/",
-        "description": "Ultimate collection of 430+ best Android root apps, Magisk modules, and LSPosed frameworks. Download top-rated root applications for Android customization, system optimization, and power user features.",
-        "inLanguage": "en-US",
-        "datePublished": "2025-08-11T00:00:00Z",
-        "dateModified": "2025-12-26T00:00:00Z",
-        "image": {
-          "@type": "ImageObject",
-          "url": "https://awesome-android-root.org/images/og.png",
-          "width": 1200,
-          "height": 630,
-          "caption": "Best Android Root Apps - 430+ Apps & Modules Collection"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Fynks",
-          "url": "https://github.com/fynks",
-          "sameAs": [
-            "https://github.com/fynks"
-          ]
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "Awesome Android Root Project",
-          "url": "https://awesome-android-root.org",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://awesome-android-root.org/images/logo.png",
-            "caption": "Awesome Android Root Logo"
-          },
-          "sameAs": [
-            "https://github.com/awesome-android-root/awesome-android-root",
-            "https://x.com/awsm_and_root"
-          ]
-        },
-        "mainEntity": {
-          "@type": "ItemList",
-          "name": "Android Root Apps Collection",
-          "description": "Curated collection of the best Android root applications, Magisk modules, LSPosed frameworks and system modification tools",
-          "numberOfItems": 414,
-          "itemListElement": [
-            {
-              "@type": "SoftwareApplication",
-              "name": "AdAway",
-              "applicationCategory": "SecurityApplication",
-              "operatingSystem": "Android",
-              "description": "Open-source ad blocker using hosts file for rooted Android devices",
-              "downloadUrl": "https://adaway.org/",
-              "license": "GPL-3.0",
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.6",
-                "ratingCount": "25000",
-                "bestRating": "5",
-                "worstRating": "1"
-              }
-            },
-            {
-              "@type": "SoftwareApplication",
-              "name": "Magisk Manager",
-              "applicationCategory": "SystemUtility",
-              "operatingSystem": "Android",
-              "description": "Universal systemless interface for Android customization",
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.8",
-                "ratingCount": "50000",
-                "bestRating": "5",
-                "worstRating": "1"
-              }
-            },
-            {
-              "@type": "SoftwareApplication",
-              "name": "LSPosed Framework",
-              "applicationCategory": "SystemUtility",
-              "operatingSystem": "Android",
-              "description": "Xposed framework implementation for modern Android versions",
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.7",
-                "ratingCount": "30000",
-                "bestRating": "5",
-                "worstRating": "1"
-              }
-            }
-          ]
-        },
-        "audience": {
-          "@type": "Audience",
-          "audienceType": "Android developers, power users, rooting enthusiasts, system administrators, mobile app developers"
-        },
-        "about": [
-          {
-            "@type": "Thing",
-            "name": "Android Root Apps",
-            "description": "Applications that require root access to function on Android devices"
-          },
-          {
-            "@type": "Thing",
-            "name": "Magisk Modules",
-            "description": "Systemless modifications for Android through the Magisk framework"
-          },
-          {
-            "@type": "Thing",
-            "name": "LSPosed Framework",
-            "description": "Modern Xposed framework implementation for Android customization"
-          },
-          {
-            "@type": "Thing",
-            "name": "System Optimization",
-            "description": "Applications for improving Android system performance and functionality"
-          },
-          {
-            "@type": "Thing",
-            "name": "Android Customization",
-            "description": "Tools and apps for personalizing and modifying Android interface and behavior"
-          }
-        ],
-        "keywords": "android root apps, best root apps 2026, magisk modules, lsposed framework, root applications, android customization, system modification, power user tools, rooted android, superuser apps",
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://awesome-android-root.org/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Android Root Apps",
-              "item": "https://awesome-android-root.org/apps-and-modules/"
-            }
-          ]
-        }
-      }
+      content: index, follow, max-image-preview:large
 ---
-
 
 <div align="center" class="apps-intro">
 
 <picture>
-  <source media="(prefers-color-scheme: light)" srcset="../public/images/logo.svg">
-  <source media="(prefers-color-scheme: dark)" srcset="../public/images/logo_dark.svg">
-  <img src="../public/images/logo.svg" alt="Awesome Android Root Logo" width="120" height="120" />
+  <source media="(prefers-color-scheme: light)" srcset="/images/logo.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="/images/logo_dark.svg">
+  <img src="/images/logo.svg" alt="Awesome Android Root Logo" width="120" height="120" />
 </picture>
 
+# Best Android Root Apps & Modules
 
-# Root Apps & Modules
-
-<sub>Discover 430+ top root apps, Magisk/KernelSU/LSPosed modules</sub>
+<p class="apps-lede">Explore a curated directory of 650+ Android root apps and modules. Find Magisk, KernelSU, APatch and LSPosed tools by what they help you do, then check the framework, FOSS status and official source before installing.</p>
 
 <div class="quick-nav">
 
-[Glossary](#glossary) &nbsp;•&nbsp; [Featured Apps](#starter-kit-must-have-apps) &nbsp;•&nbsp; [Browse Apps/Modules](#accessibility-tools)
+[Browse by Category](#browse-by-category) &nbsp;•&nbsp; [Starter Kit](#starter-kit-must-have-apps) &nbsp;•&nbsp; [Glossary](#glossary) &nbsp;•&nbsp; [Safety](#safety-legal)
 
 </div>
 </div>
+
+> [!TIP]
+> **New to rooting?** Start with the [Complete Rooting Guide](../rooting-guides/index.md) before exploring the
+> lists below. For privacy-friendly installs, use the F-Droid ecosystem: install
+> [Droid-ify](https://github.com/Droid-ify/client/releases) (modern F-Droid client) and enable the
+> [IzzyOnDroid](https://apt.izzysoft.de/fdroid/) repo for many additional packages.
+
+> [!NOTE]
+> Every entry links to its **Source Code** page (GitHub/GitLab etc.) for `FOSS` apps, otherwise to its
+> **Google Play Store** listing. The inline badges identify framework and licensing metadata: `[M]` Magisk,
+> `[K]` KernelSU, `[A]` APatch, `[LSP]` LSPosed, `FOSS`, and ⭐ featured entries.
 
 ---
+
+## Browse by Category
+
+Apps and modules are grouped by **what you want to accomplish**, not by whether they are apps or modules. Each category combines root apps, Magisk modules, KernelSU modules, APatch modules and LSPosed modules for that topic.
+
+| Category | What you will find |
+| :--- | :--- |
+| 🛠️ [Root Management](root-management.md) | Root managers, module managers, temporary root, LSPosed, Zygisk and root-hiding tools. |
+| ⚙️ [System](system.md) | Systemless tweaks, boot and startup tools, permissions, AppOps and package management. |
+| ⚡ [Performance &amp; Battery](performance.md) | Kernel, CPU, memory, battery, charging and process-management tools. |
+| 🕵️ [Privacy](privacy.md) | Privacy controls, app isolation, location tools and device-ID management. |
+| 🔐 [Security](security.md) | Firewalls, security utilities and tools for inspecting rooted devices. |
+| 🚫 [Ad Blocking](ad-blocking.md) | Hosts-based blockers, DNS filtering and anti-tracking modules. |
+| 🧩 [App Modifications](app-modifications.md) | App patchers, media, browser, social and LSPosed modifications. |
+| 🧹 [Debloating](debloating.md) | Tools for safely reviewing, freezing and removing unwanted system apps. |
+| 🗂️ [File Management](file-management.md) | Root file managers, cleaners, partition and storage tools. |
+| 💾 [Backup &amp; Restore](backup.md) | App/data backup, migration and recovery utilities. |
+| 🎨 [Customization](customization.md) | Themes, fonts, launchers, display, navigation and status-bar changes. |
+| 🎵 [Audio](audio.md) | Audio effects, enhancement, routing and device-specific audio tools. |
+| 🌐 [Networking](networking.md) | VPN, proxy, DNS, Wi-Fi, Bluetooth and NFC utilities. |
+| 🎮 [Gaming](gaming.md) | Gaming performance, FPS, input and device-tuning tools. |
+| 🧑‍💻 [Development &amp; Automation](development.md) | Terminals, ADB, scripting, automation and Android development tools. |
+| 🧰 [General Utilities](utilities.md) | Sync, power, sharing and practical root utilities. |
+
+> [!TIP]
+> Looking for tutorials instead of tools? Browse the [Rooting Guides](../rooting-guides/index.md) or the
+> [General Guides](../general-guides/index.md).
+
+---
+
+## Starter Kit: Must have Apps
+
+| App | Why it's essential |
+| :---: | :--- |
+| **[Magisk](https://github.com/topjohnwu/Magisk)** <br><small> [Root Management](root-management.md) </small> | If you chose Magisk, this is your manager. |
+| **[App Manager](https://github.com/MuntashirAkon/AppManager)** <br><small> [System → App & Package Management](system.md#app-package-management) </small> | Inspect and manage apps with root privileges. |
+| **[MiXplorer](https://mixplorer.com/)** <br><small> [File Management](file-management.md) </small> | A powerful file manager with full root access. |
+| **[AdAway](https://adaway.org/)** <br><small> [Ad Blocking](ad-blocking.md) </small> | Open-source system-wide ad blocker. |
+| **[Droid-ify](https://f-droid.org/packages/com.looker.droidify)** <br><small> [System → App & Package Management](system.md#app-package-management) </small> | A modern F-Droid client for installing open-source apps. |
+
+---
+
+## Glossary
+
+### Entry Tags
+
+| Tag | Meaning |
+|:----|:---|
+| ⭐ | Community-recommended (most trusted/popular in category) |
+| `FOSS` | Free and Open Source Software (source code available) |
+| `Proprietary` | Closed-source software or unclear licensing |
+
+### Framework & Module Badges
+
+| Badge | Framework | Requires |
+|:---|:---|:---|
+| `[M]` | Magisk Module | [Magisk](../rooting-guides/magisk-guide.md) |
+| `[K]` | KernelSU Module | [KernelSU](../rooting-guides/kernelsu-guide.md) |
+| `[A]` | APatch Module | [APatch](../rooting-guides/apatch-guide.md) |
+| `[LSP]` | LSPosed / Xposed Module | [LSPosed](../rooting-guides/lsposed-guide.md) |
+
+### Store & Source Icons
+
+| Icon | Source |
+|:---|:---|
+| 🌱 | Available on F-Droid / IzzyOnDroid |
+| ▶️ | Available on Google Play Store |
+
+### Ordering of Entries
+
+1. ⭐ (Community-recommended) entries first
+2. Alphabetical order within each (sub-)category
+
+<details>
+<summary><b>📚 Common Rooting Terms</b></summary>
+
+- **Bootloader** - Low-level software that starts your OS (must be unlocked for root)
+- **Temporary Root** - Root that exists in memory for the current boot only (e.g. GhostLock/CVE-2026-43499 tools); lost on reboot, no bootloader unlock needed
+- **Recovery** - Special mode for system modifications (TWRP, CWM)
+- **Systemless Root** - Root method that doesn't modify system partition
+- **Zygisk** - Feature for advanced app hooking and hiding
+- **DenyList** - Feature to hide root from specific apps
+- **Play Integrity** - Google's security check (replacing SafetyNet)
+- **Knox** - Samsung's security platform (trips when bootloader unlocked)
+
+</details>
+
+---
+
+## Resources and Help
+
+### Official Channels
+
+| Platform | Purpose | Link |
+|:---|:---|:---|
+| 🌐 **Website** | Browse apps, modules & guides | [awesome-android-root.xyz](https://awesome-android-root.xyz) |
+| 📂 **GitHub** | Source, discussions & issues | [GitHub Repo](https://github.com/awesome-android-root/awesome-android-root) |
+| 𝕏 **X/Twitter** | Updates & news | [@awsm_and_root](https://x.com/awsm_and_root) |
+
+### Quick Help Paths
+
+- First time here? Start at the [Introduction](/rooting-guides/#understanding-root-access) & the
+  [4-Step Rooting Process](/rooting-guides/#universal-rooting-process)
+- Unsure about a term? Open the [Glossary](#glossary)
+- Want tools? Jump to [Browse by Category](#browse-by-category)
+- Need a walkthrough? Browse the [Rooting Guides Index](../rooting-guides/index.md)
+- Common questions? Check the [FAQs](../faqs.md)
+- Need fixes? See the [Troubleshooting Guide](../troubleshooting.md)
+
+### Contribute and Participate
+
+- ⭐ Star the [repo](https://github.com/awesome-android-root/awesome-android-root) (boosts discovery)
+- 🐛 Report [issues](https://github.com/awesome-android-root/awesome-android-root/issues)
+- 💡 Suggest new apps/modules
+- 🧹 Improve formatting / dead link cleanup
+
+> 📝 Read the [Contributing Guide](../contributing.md) before major PRs.
+
+---
+
+## Safety & Legal
+
+> [!IMPORTANT]
+> **Educational reference only. Proceed at your own risk.**
+> Rooting can void warranty, break security (Knox/Integrity), and lock out banking/DRM apps. **Avoid
+> proceeding** if this is a mission-critical device or if you lack a verified backup.
+
+### Pre-Flash Checklist
+
+- [ ] **Backups:** Full app data and internal storage images.
+- [ ] **Firmware:** Matching factory boot/vbmeta images on hand.
+- [ ] **Tools:** Latest `platform-tools` (ADB/Fastboot) installed.
+- [ ] **Access:** Alternate path available (Custom Recovery or 2nd device).
+
+### Risk Mitigation
+
+- **Systemless First:** Favor Magisk/KernelSU over invasive system partition mods.
+- **One at a Time:** Change one variable and test before moving to the next.
+- **Clean Rollback:** Keep pristine copies of original `boot` and `vbmeta` images.
+- **Module Safety:** Check "Open Issues" and avoid overlapping mods (e.g., multiple ad-blockers).
+
+<div align="center">
+
+*Respect licenses, ToS, and local laws. Do not use root to unlawfully bypass paid features. See the
+[Legal Disclaimer](../legal-disclaimer.md) for details.*
+
+</div>
